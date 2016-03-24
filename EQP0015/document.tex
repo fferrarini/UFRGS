@@ -1,0 +1,113 @@
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{ae}
+% \usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[brazil]{hyperref}
+\usepackage[alf]{abntex2cite}
+\usepackage[utf8]{inputenc}
+  
+\usepackage{graphicx} 
+\usepackage{url} 
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{xifthen}
+\usepackage{threeparttable}
+\usepackage[version=3]{mhchem} % Formulas químicas automaticas, comando \ce{}
+\usepackage{chemfig} % Formulas químicas automaticas, comando \ce{}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{lscape}
+\usepackage{subfloat}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{varwidth}
+\newcommand{\subfigref}[1]{\hyperref[#1]{Figura~\ref*{#1}}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\sisetup{output-decimal-marker = {,}}
+\newcommand{\theauthori}{}
+\newcommand{\theauthorii}{}
+\newcommand{\theauthoriii}{}
+\renewcommand{\title}[1]{\newcommand{\thetitle}{#1}}
+\renewcommand{\author}[1]{\newcommand{\theauthor}{#1}}
+\newcommand{\authori}[1]{\renewcommand{\theauthori}{#1}}
+\newcommand{\authorii}[1]{\renewcommand{\theauthorii}{#1}}
+\newcommand{\authoriii}[1]{\renewcommand{\theauthoriii}{#1}}
+\newcommand{\class}[1]{\newcommand{\theclass}{#1}}
+\newcommand{\classProffessor}[1]{\newcommand{\theclassProffessor}{#1}}
+\usepackage{palatino}
+\renewcommand{\textsc}[1]{\fontshape{sc} \fontfamily{\sfdefault} \selectfont #1}
+
+% o novo maketitlepage
+\renewcommand{\maketitle}{
+% Primeira página de título  
+\pagestyle{empty}
+\begin{center}
+\textsc \large
+Universidade Federal do Rio Grande do Sul \\
+Escola de Engenharia \\
+Departamento de Engenharia Química \\
+Programa de Pós--Graduação em Engenharia Química
+\vfill
+\Large \textsc \theclass \\ Prof:~\theclassProffessor
+\vfill \vfill
+\huge \bfseries \textsc  
+\thetitle
+\vfill \vfill
+\begin{varwidth}[t]{\textwidth}
+\Large \bfseries \textsc 
+\theauthor\\
+\ifthenelse{\equal{\theauthori}{}}{}{\theauthori\\}
+\ifthenelse{\equal{\theauthorii}{}}{}{\theauthorii\\}
+\ifthenelse{\equal{\theauthoriii}{}}{}{\theauthoriii}
+\end{varwidth}
+\vfill \vfill 
+\large \textsc Porto Alegre, RS \\ \today
+\end{center}
+\clearpage
+\setcounter{page}{1}
+\pagestyle{fancy} 
+\lhead{}
+} % end maketitle 
+
+\begin{document}
+
+\class{EQP 0000--Nome da Disciplina}
+\classProffessor{Nome do Professor}
+\title{Nome do Trabalho}
+\author{Nome do Aluno}
+% Para mais autores do trabalho, descomentar as linhas abaixo
+% \authori{Aluno2}
+% \authorii{Aluno3}
+% \authoriii{Aluno4}
+
+% Capa
+\maketitle  
+
+% Incluir seções do trabalho
+\include{Trab1}  
+
+ 
+ \newdimen\bibindent
+\setlength\bibindent{1.5em} % identaçao das referencias
+{ % Um lineskip menor neste contexto de referencias
+\rhead{}
+\baselineskip 4.3mm 
+% Edite o arquivo bib.bib com as suas próprias referências 
+\bibliography{bib}
+} 
+ 
+\end{document}
