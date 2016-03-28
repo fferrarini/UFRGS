@@ -1,3 +1,5 @@
+package br.ufrgs.enq;
+
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -63,29 +65,22 @@ public class Trabalho01 extends JFrame{
 
 				System.out.println(x1[i]+"\t"+y1[i]+"\t"+Pbolha[i]+"\t"+Pbolha2[i]);
 
+				
+				
 			}
 
-
+		
 
 		}
+		
+		
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		
 		
-		JFrame f = new JFrame("my first gui program");
 		
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		Container content = f.getContentPane();
-		content.setLayout(new BorderLayout());
-		content.add(new JButton("Click on me"));
-		
-		f.setSize(250, 100);
-		f.setLocationRelativeTo(null);
-		
-		f.setVisible(true);
 		
 		
 	}
