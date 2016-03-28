@@ -1,8 +1,13 @@
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import br.com.vrtech.iise.IISEClient;
 import br.com.vrtech.iise.ThermoServer;
 
-public class Trabalho01 {
+public class Trabalho01 extends JFrame{
 	public static void main(String[] args) {
 		try{
 			// Connect to a remote host (not needed when using the desktop version)
@@ -27,11 +32,11 @@ public class Trabalho01 {
 			String comps[] = {"ethane", "propylene"};
 			thermo.configureMixture(mix, comps);
 			thermo.configurePhase(liq, ThermoServer.Liquid|ThermoServer.ActPureFugPvapIdeal, mix, "PR", null, "UNIFAC(Do)");
-			
+
 			// Set the state of the phases
 			double T = 100.0;   String Tunit = "F";   // Temperature in deg C
 			double P = 1.0;     String Punit = "psi"; // Pressure in bar
-			
+
 			//Calculo de Psat
 			double Psat[] = thermo.getPureProperty(mix, ThermoServer.SaturationPressure, Punit, T, Tunit);
 
@@ -55,7 +60,7 @@ public class Trabalho01 {
 
 				actliq = thermo.getPhaseProperty(liq, ThermoServer.ActivityCoefficient, "");
 				Pbolha2[i]=x1[i]*Psat[0]*actliq[0] + (1-x1[i])*Psat[1]*actliq[1];
-				
+
 				System.out.println(x1[i]+"\t"+y1[i]+"\t"+Pbolha[i]+"\t"+Pbolha2[i]);
 
 			}
@@ -66,5 +71,22 @@ public class Trabalho01 {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
+		JFrame f = new JFrame("my first gui program");
+		
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container content = f.getContentPane();
+		content.setLayout(new BorderLayout());
+		content.add(new JButton("Click on me"));
+		
+		f.setSize(250, 100);
+		f.setLocationRelativeTo(null);
+		
+		f.setVisible(true);
+		
+		
 	}
 }
