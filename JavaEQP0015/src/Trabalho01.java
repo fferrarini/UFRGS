@@ -7,11 +7,11 @@ public class Trabalho01 {
 		try{
 			// Connect to a remote host (not needed when using the desktop version)
 			String host = "lvpp-srv02.nuvem.ufrgs.br";
-//			String user = "fabricioferrarini@gmail.com";
+			//			String user = "fabricioferrarini@gmail.com";
 			String user = "fabricioferrarini@gmail.com";
 			String key = "e245df41-15f0-4547-8b4e-804456e0d0b4";
 			IISEClient.connect(host, user, key);
-			
+
 			// Get a reference for the iiSE thermodynamics server
 			ThermoServer thermo = IISEClient.getThermo();
 
@@ -24,35 +24,44 @@ public class Trabalho01 {
 			int vap = 2;
 
 			// Configure the mixture with the desired components.
-			String comps[] = {"n-butane", "isobutane", "n-pentane", "n-hexane"};
+			String comps[] = {"ethane", "propylene"};
 			thermo.configureMixture(mix, comps);
-
-			// Once the mixture is configured we can configure phases.
-			// In the phase configuration we need to specify:
-			//  - the mixture to be used
-			//  - the phase type (Liquid or Vapour)
-			//  - the equation of state for calculations ("PR", "SRK", ...)
 			thermo.configurePhase(liq, ThermoServer.Liquid, mix, "PR", "SCMR", "UNIFAC(Do)");
-			thermo.configurePhase(vap, ThermoServer.Vapour, mix, "PR", "SCMR", "UNIFAC(Do)");
 			
 			// Set the state of the phases
-			double T = 25.0;   String Tunit = "C";   // Temperature in deg C
-			double P = 1.0;    String Punit = "bar"; // Pressure in bar
-			double []z = {0.2, 0.3, 0.1, 0.4};       // composition
-			thermo.setPhaseState(liq, T, P, z, Tunit, Punit);
-			thermo.setPhaseState(vap, T, P, z, Tunit, Punit);
+			double T = 100;   String Tunit = "F";   // Temperature in deg C
+			double P = 1;     String Punit = "psi"; // Pressure in bar
 			
-			double Psat[] = thermo.getPureProperty(mix, ThermoServer.SaturationPressure, "psi", T, "K");
-						
-			
-			double x1[]= {0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
-			double x[] = new double[comps.length];
+			//Calculo de Psat
+			double Psat[] = thermo.getPureProperty(mix, ThermoServer.SaturationPressure, Punit, T, Tunit);
+
+
+
+			//Lei de Raoult
+			double x1[] = new double [21];
+			double Pbolha[] = new double [x1.length];
+			double y1[] = new double [x1.length];
+			double actliq[] = new double [x1.length];
+			double Pbolha2[] = new double [x1.length];
 			for (int i = 0; i < x1.length; i++) {
-				
+				double i2 = i/(x1.length-1.);
+				x1[i] = i2;
+				double x[] = {x1[i], 1-x1[i]};
+				Pbolha[i]=x[0]*Psat[0] + x[1]*Psat[1];
+				y1[i] = (x[0]*Psat[0])/Pbolha[i];
+
+				thermo.setPhaseState(liq, T, P, x, Tunit, Punit);
+
+//				double[] fugliq = thermo.getPhaseProperty(liq, ThermoServer.FugacityCoefficient, "");
+//				actliq = thermo.getPhaseProperty(liq, ThermoServer.ActivityCoefficient, "");
+				Pbolha2[i]=x1[i]*Psat[0]*actliq[0] + (1-x1[i])*Psat[1]*actliq[1];
+
+				System.out.println(x1[i]+"\t"+y1[i]+"\t"+Pbolha[i]+"\t"+Pbolha2[i]);
+
 			}
-			
-			
-			
+
+
+
 		}
 		catch (Exception e) {
 			e.printStackTrace();
