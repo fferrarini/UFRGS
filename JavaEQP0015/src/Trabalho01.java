@@ -26,17 +26,17 @@ public class Trabalho01 {
 			// Configure the mixture with the desired components.
 			String comps[] = {"ethane", "propylene"};
 			thermo.configureMixture(mix, comps);
-			thermo.configurePhase(liq, ThermoServer.Liquid, mix, "PR", "SCMR", "UNIFAC(Do)");
+			thermo.configurePhase(liq, ThermoServer.Liquid|ThermoServer.ActPureFugPvapIdeal, mix, "PR", null, "UNIFAC(Do)");
 			
 			// Set the state of the phases
-			double T = 100;   String Tunit = "F";   // Temperature in deg C
-			double P = 1;     String Punit = "psi"; // Pressure in bar
+			double T = 100.0;   String Tunit = "F";   // Temperature in deg C
+			double P = 1.0;     String Punit = "psi"; // Pressure in bar
 			
 			//Calculo de Psat
 			double Psat[] = thermo.getPureProperty(mix, ThermoServer.SaturationPressure, Punit, T, Tunit);
 
 
-
+			System.out.println("x1"+" "+"y1"+" "+"Pbolha1"+" "+"Pbolha2");
 			//Lei de Raoult
 			double x1[] = new double [21];
 			double Pbolha[] = new double [x1.length];
@@ -52,10 +52,10 @@ public class Trabalho01 {
 
 				thermo.setPhaseState(liq, T, P, x, Tunit, Punit);
 
-//				double[] fugliq = thermo.getPhaseProperty(liq, ThermoServer.FugacityCoefficient, "");
-//				actliq = thermo.getPhaseProperty(liq, ThermoServer.ActivityCoefficient, "");
-				Pbolha2[i]=x1[i]*Psat[0]*actliq[0] + (1-x1[i])*Psat[1]*actliq[1];
 
+				actliq = thermo.getPhaseProperty(liq, ThermoServer.ActivityCoefficient, "");
+				Pbolha2[i]=x1[i]*Psat[0]*actliq[0] + (1-x1[i])*Psat[1]*actliq[1];
+				
 				System.out.println(x1[i]+"\t"+y1[i]+"\t"+Pbolha[i]+"\t"+Pbolha2[i]);
 
 			}
