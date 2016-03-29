@@ -2,7 +2,12 @@ package br.ufrgs.enq;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Shape;
+import java.awt.Stroke;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 import javax.swing.JFrame;
 
@@ -42,7 +47,7 @@ public class SimpleChart extends JFrame {
 		XYSeriesCollection dataset = new XYSeriesCollection();
 
 		// With the ChartFactory we create an already configured chart.
-		JFreeChart chart = ChartFactory.createXYLineChart("ELV da mistura Etano(1)/Propeno(2) a 100 F", "Fração molar de etano (x1/y1)", "Pressão do sistema (psi)",
+		JFreeChart chart = ChartFactory.createXYLineChart("", "Fração molar de etano (x1/y1)", "Pressão do sistema (psi)",
 				dataset, PlotOrientation.VERTICAL, true, true, false);
 		// Add the chart inside of a ChartPanel and pack()
 		content.add(new ChartPanel(chart), BorderLayout.CENTER);
@@ -52,7 +57,7 @@ public class SimpleChart extends JFrame {
 		XYSeries series0 = new XYSeries("Lei de Raoult", false);
 		XYSeries series1 = new XYSeries("", false);
 		XYSeries series2 = new XYSeries("Lei de Raoult Modificada", false);
-		XYSeries series3 = new XYSeries("", false);
+		XYSeries series3 = new XYSeries("",false);
 		XYSeries series4 = new XYSeries("Dados Experimentais", false);
 		XYSeries series5 = new XYSeries("", false);
 		dataset.addSeries(series0);
@@ -61,10 +66,15 @@ public class SimpleChart extends JFrame {
 		dataset.addSeries(series3);
 		dataset.addSeries(series4);
 		dataset.addSeries(series5);
-		
+
+		//Experimental Data
 		double[] Pexp = {227, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 722};
 		double[] x1exp = {0.0, 0.048, 0.157, 0.26, 0.361, 0.461, 0.554, 0.643, 0.727, 0.809, 0.894, 0.93}; 
 		double[] y1exp = {0.0, 0.118, 0.317, 0.447, 0.543, 0.626, 0.697, 0.759, 0.813, 0.863, 0.912, 0.93};
+		for (int i = 0; i < x1exp.length; i++) {
+			series4.add(x1exp[i], Pexp[i]);
+			series5.add(y1exp[i], Pexp[i]);
+		}
 
 		// adding the data to the series
 		//		int N = 200;
@@ -91,7 +101,7 @@ public class SimpleChart extends JFrame {
 			// Most applications will use only 1 or 2 slots.
 			int mix = 1;
 			int liq = 1;
-			int vap = 2;
+//			int vap = 2;
 
 			// Configure the mixture with the desired components.
 			String comps[] = {"ethane", "propylene"};
@@ -128,18 +138,12 @@ public class SimpleChart extends JFrame {
 
 				System.out.println(x1[i]+"\t"+y1[i]+"\t"+Pbolha[i]+"\t"+Pbolha2[i]);
 
-				series0.add(i2, Pbolha[i]);
-				series1.add(i3, Pbolha[i]);
-				series2.add(i2, Pbolha2[i]);
-				series3.add(i3, Pbolha2[i]);
-				
+				series0.add(i2, Pbolha[i]); series1.add(i3, Pbolha[i]); series2.add(i2, Pbolha2[i]); series3.add(i3, Pbolha2[i]);
+
 			}
 
-		for (int i = 0; i < x1exp.length; i++) {
-			series4.add(x1exp[i], Pexp[i]);
-			series5.add(y1exp[i], Pexp[i]);
-		}
-			
+
+
 		}
 
 
@@ -151,26 +155,50 @@ public class SimpleChart extends JFrame {
 		// Some additional configurations (comment the following lines to stay with the default
 		// configuration)
 		XYPlot plot = (XYPlot)chart.getPlot();
+		plot.setBackgroundPaint(Color.WHITE);
+		plot.setDomainGridlinesVisible(false);
+		plot.setRangeGridlinesVisible(false);
 		XYLineAndShapeRenderer r = (XYLineAndShapeRenderer) plot.getRenderer();
+
 		// Changing the line width of series0
-//		r.setSeriesStroke(0, new BasicStroke(2.5f));
-		
-		// Only markers for series1
-		r.setSeriesLinesVisible(4, false);
-		r.setSeriesShapesVisible(4, true);
-		r.setSeriesShapesFilled(4, false);
-		
-		r.setSeriesLinesVisible(5, false);
-		r.setSeriesShapesVisible(5, true);
-		r.setSeriesShapesFilled(5, false);
-		
+		r.setSeriesStroke(0, new BasicStroke(1.5f));
+		r.setSeriesStroke(1, new BasicStroke(1.5f));
+		r.setSeriesVisibleInLegend(1, false);
+
+		//set dashed line
+		Stroke dashed = new BasicStroke(1.5f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{5}, 0);
+		r.setSeriesStroke(2,dashed);
+		r.setSeriesStroke(3,dashed);
+		r.setSeriesVisibleInLegend(3, false);
+
+		// Only markers for series 4 and 5
+		r.setSeriesLinesVisible(4, false); r.setSeriesShapesVisible(4, true); r.setSeriesShapesFilled(4, true);
+		r.setSeriesLinesVisible(5, false); r.setSeriesShapesVisible(5, true); r.setSeriesShapesFilled(5, true);
+		r.setSeriesVisibleInLegend(5, false);
+		//Set color lines (all series)
+
+
+		r.setSeriesPaint(0, Color.black); r.setSeriesPaint(1, Color.black);r.setSeriesPaint(2, Color.black);
+		r.setSeriesPaint(3, Color.black);r.setSeriesPaint(4, Color.black); r.setSeriesPaint(5, Color.black);
+
+
+
+		//For rectangular dot shape
+		//	    Shape shape1 = new Rectangle2D.Double(-2, -2, 2, 2);
+		//For circle dot shape
+		Shape shape2 = new Ellipse2D.Double(-2, -2, 6, 6);
+		r.setSeriesShape(4, shape2);
+		r.setSeriesShape(5, shape2);
+
+
 		// adjusting the plot range for the "x" axis
 		plot.getDomainAxis().setAutoRange(false);
 		plot.getDomainAxis().setRange(new Range(0.0, 1.0));
-		
+
 		// adjusting the plot range for the "y" axis
 		ValueAxis yAxis = plot.getRangeAxis();
 		yAxis.setRange(200, 800);
+	
 	}
 
 	public static void main(String[] args) {
