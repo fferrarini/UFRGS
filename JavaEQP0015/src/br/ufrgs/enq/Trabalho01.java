@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Stroke;
@@ -19,9 +20,12 @@ import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.chart.title.LegendTitle;
 import org.jfree.data.Range;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.ui.RectangleEdge;
+import org.jfree.ui.RectangleInsets;
 
 import br.com.vrtech.iise.IISEClient;
 import br.com.vrtech.iise.ThermoServer;
@@ -41,7 +45,7 @@ public class Trabalho01 extends JFrame {
 		XYSeriesCollection dataset2 = new XYSeriesCollection();
 
 		// With the ChartFactory we create an already configured chart.
-		JFreeChart chart = ChartFactory.createXYLineChart("", "Fração molar de etano (x1/y1)",
+		JFreeChart chart = ChartFactory.createXYLineChart("", "Fração molar de etano (x1,y1)",
 				"Pressão do sistema (psi)", dataset, PlotOrientation.VERTICAL, true, true, false);
 		JFreeChart chart2 = ChartFactory.createXYLineChart("", "Fração no molar de etano no liquido (x1)",
 				"Fração no molar de etano no vapor (y1)", dataset2, PlotOrientation.VERTICAL, true, true, false);
@@ -51,11 +55,11 @@ public class Trabalho01 extends JFrame {
 		// pack();
 
 		// Create the series (the lines) and add to the dataset
-		XYSeries series0 = new XYSeries("Lei de Raoult", false);
+		XYSeries series0 = new XYSeries("Dados Experimentais", false);
 		XYSeries series1 = new XYSeries("", false);
-		XYSeries series2 = new XYSeries("Lei de Raoult Modificada", false);
+		XYSeries series2 = new XYSeries("Lei de Raoult", false);
 		XYSeries series3 = new XYSeries("", false);
-		XYSeries series4 = new XYSeries("Dados Experimentais", false);
+		XYSeries series4 = new XYSeries("Lei de Raoult Modificada", false);
 		XYSeries series5 = new XYSeries("", false);
 		XYSeries series6 = new XYSeries("Dados Experimentais", false);
 		XYSeries series7 = new XYSeries("Lei de Raoult", false);
@@ -77,8 +81,8 @@ public class Trabalho01 extends JFrame {
 		double[] x1exp = { 0.0, 0.048, 0.157, 0.26, 0.361, 0.461, 0.554, 0.643, 0.727, 0.809, 0.894, 0.93 };
 		double[] y1exp = { 0.0, 0.118, 0.317, 0.447, 0.543, 0.626, 0.697, 0.759, 0.813, 0.863, 0.912, 0.93 };
 		for (int i = 0; i < x1exp.length; i++) {
-			series4.add(x1exp[i], Pexp[i]);
-			series5.add(y1exp[i], Pexp[i]);
+			series0.add(x1exp[i], Pexp[i]);
+			series1.add(y1exp[i], Pexp[i]);
 			series6.add(x1exp[i], y1exp[i]);
 
 		}
@@ -141,10 +145,10 @@ public class Trabalho01 extends JFrame {
 
 				System.out.println(x1[i] + "\t" + y1[i] + "\t" + Pbolha[i] + "\t" + y2[i] + "\t" + Pbolha2[i]);
 
-				series0.add(x1[i], Pbolha[i]);
-				series1.add(y1[i], Pbolha[i]);
-				series2.add(x1[i], Pbolha2[i]);
-				series3.add(y2[i], Pbolha2[i]);
+				series2.add(x1[i], Pbolha[i]);
+				series3.add(y1[i], Pbolha[i]);
+				series4.add(x1[i], Pbolha2[i]);
+				series5.add(y2[i], Pbolha2[i]);
 				series7.add(x1[i], y1[i]);
 				series8.add(x1[i], y2[i]);
 				series9.add(x1[i], x1[i]);
@@ -168,24 +172,24 @@ public class Trabalho01 extends JFrame {
 		XYLineAndShapeRenderer r = (XYLineAndShapeRenderer) plot.getRenderer();
 
 		// Changing the line width of series0
-		r.setSeriesStroke(0, new BasicStroke(1.5f));
-		r.setSeriesStroke(1, new BasicStroke(1.5f));
-		r.setSeriesVisibleInLegend(1, false);
+		r.setSeriesStroke(2, new BasicStroke(1.5f));
+		r.setSeriesStroke(3, new BasicStroke(1.5f));
+		r.setSeriesVisibleInLegend(3, false);
 
 		// set dashed line
 		Stroke dashed = new BasicStroke(1.5f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[] { 5 }, 0);
-		r.setSeriesStroke(2, dashed);
-		r.setSeriesStroke(3, dashed);
-		r.setSeriesVisibleInLegend(3, false);
+		r.setSeriesStroke(4, dashed);
+		r.setSeriesStroke(5, dashed);
+		r.setSeriesVisibleInLegend(5, false);
 
 		// Only markers for series 4 and 5
-		r.setSeriesLinesVisible(4, false);
-		r.setSeriesShapesVisible(4, true);
-		r.setSeriesShapesFilled(4, true);
-		r.setSeriesLinesVisible(5, false);
-		r.setSeriesShapesVisible(5, true);
-		r.setSeriesShapesFilled(5, true);
-		r.setSeriesVisibleInLegend(5, false);
+		r.setSeriesLinesVisible(0, false);
+		r.setSeriesShapesVisible(0, true);
+		r.setSeriesShapesFilled(0, true);
+		r.setSeriesLinesVisible(1, false);
+		r.setSeriesShapesVisible(1, true);
+		r.setSeriesShapesFilled(1, true);
+		r.setSeriesVisibleInLegend(1, false);
 
 		// Set color lines (all series)
 		r.setSeriesPaint(0, Color.black);
@@ -199,8 +203,8 @@ public class Trabalho01 extends JFrame {
 		// Shape shape1 = new Rectangle2D.Double(-2, -2, 2, 2);
 		// For circle dot shape
 		Shape shape2 = new Ellipse2D.Double(-2, -2, 6, 6);
-		r.setSeriesShape(4, shape2);
-		r.setSeriesShape(5, shape2);
+		r.setSeriesShape(0, shape2);
+		r.setSeriesShape(1, shape2);
 
 		// adjusting the plot range for the "x" axis
 		plot.getDomainAxis().setAutoRange(false);
@@ -250,18 +254,24 @@ public class Trabalho01 extends JFrame {
 		// adjusting the plot range for the "y" axis
 		ValueAxis yAxis2 = plot2.getRangeAxis();
 		yAxis2.setRange(0.0, 1.0);
+		
+		Font labelFont = new Font("Curinga", Font.PLAIN, 14);
+		plot2.getDomainAxis().setLabelFont(labelFont);
+		plot2.getRangeAxis().setLabelFont(labelFont);
+		plot2.setAxisOffset(new RectangleInsets(8, 0, 0, 16));
+		plot.getDomainAxis().setLabelFont(labelFont);
+		plot.getRangeAxis().setLabelFont(labelFont);
+		plot.setAxisOffset(new RectangleInsets(8, 0, 0, 16));
+		
 	}
 
 	public static void main(String[] args) {
 		Trabalho01 graph = new Trabalho01();
 
-		graph.setLocationRelativeTo(null);
+		
 		graph.setVisible(true);
 		graph.setSize(new Dimension(1360, 800));
-
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		Point middle = new Point(screenSize.width / 2, screenSize.height / 2);
-		Point newLocation = new Point(middle.x - (graph.getWidth() / 2), middle.y - (graph.getHeight() / 2));
-		graph.setLocation(newLocation);
+		graph.setLocationRelativeTo(null);
+				
 	}
 }
