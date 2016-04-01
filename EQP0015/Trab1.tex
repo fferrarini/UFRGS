@@ -7,7 +7,7 @@
 é utilizável para uma vasta quantidade de misturas exibindo 
 desvios positivos ou negativos da lei de Raoult. O método 
 UNIFAC segue o modelo “Analytical-Solution-of-Groups”, ou ASOG,
-de Derr e Deal’s (1969), onde os coeficientes de atividade
+de \citeonline{Derr1969}, onde os coeficientes de atividade
 em misturas são relacionados ás interações entre os 
 grupos estruturais. Além disso, o método UNIFAC pode 
 ser usado para prever os coeficientes de atividade para 
@@ -16,22 +16,22 @@ fazem parte de um determinado sistemas multicomponentes.
 Tais previsões podem ser utilizadas na geração de parâmetros
  binários em qualquer modelo de excesso de Gibbs.
 
-%\apudonline{Fredenslund1975}{Fredenslund1975}
+%\apudonline{Fredenslund1975}{Fredenslund1975} 
 
 \citeonline{Pollmann1996} citam que o logaritmo do coeficiente de
-atividade em uma mistura é calculado (Equação 1) via o somatório de duas contribuições: a
-combinatorial, devido aos diferentes tamanhos e formatos das moléculas, e a
+atividade em uma mistura é calculado (\autoref{eq:001}) via o somatório de duas
+contribuições:
+a combinatorial, devido aos diferentes tamanhos e formatos das moléculas, e a
 residual representa a contribuição via interação energética entre as
-moléculas.
+moléculas. A relação que descreve tal somatório é:
 \begin{equation}\label{eq:001}ln\gamma_i = ln\gamma_i^C +
 ln\gamma_i^R\end{equation}
-
-Onde
+onde
 $ln\gamma_i^C$ é o termo combinatório e $ln\gamma_i^R$ 
 é o termo residual.
 
 
-Todavia, \apudonline{Gmehling1996}{Muzenda2013} cita que resultados não  
+Todavia, \citeonline{Gmehling1996} cita que resultados não  
 satisfatórios são obtidos para
 sistemas cujos componentes detêm tamanhos bem diferentes, bem
 como para coeficientes de atividade à diluição infinita. 
@@ -88,7 +88,7 @@ excesso ($g^E$), que permite a predição dos coeficientes de atividade em
 sistemas não-eletrolisados, em função da temperatura e 
 composição. O coeficiente de atividade é calculado via 
 soma da parcela combinatorial e residual, para cada 
-componente $i$, via Equação 1.
+componente $i$, via \autoref{eq:001}.
 
 \citeonline{Jakob2006} cita que a parte combinatorial 
 independente da temperatura é
@@ -97,7 +97,7 @@ de Waals ($R_k$) e da área superficial ($Q_k$) dos grupos funcionais.
 Comparativamente com o modelo UNIFAC original, o UNIFAC (Do)
  apresenta uma mudança empírica na parte combinatorial ($V'$) 
 para melhor descrever os sistemas assimétricos, como 
-mostrado nas equações a seguir:
+mostrado nas Equações \ref{eq:002} a \ref{eq:008}.
 
 \begin{equation}\label{eq:002}
 ln\gamma_i^C = 1 - V'_i + ln(V'_i) - 5q_i\left [ 1
@@ -105,15 +105,15 @@ ln\gamma_i^C = 1 - V'_i + ln(V'_i) - 5q_i\left [ 1
 \end{equation}
 
 \begin{equation}\label{eq:003}
-V'_i = \frac{r_i^{3/4}}{\displaystyle\sum_{j=1}^nx_jr_j^{3/4}}
+V'_i = \frac{r_i^{3/4}}{\displaystyle\sum_jx_jr_j^{3/4}}
 \end{equation}
 
 \begin{equation}\label{eq:004}
-V_i = \frac{r_i}{\displaystyle\sum_{j=1}^nx_jr_j}
+V_i = \frac{r_i}{\displaystyle\sum_jx_jr_j}
 \end{equation}
 
 \begin{equation}\label{eq:005}
-F_i = \frac{q_i}{\displaystyle\sum_{j=1}^nx_jr_j}
+F_i = \frac{q_i}{\displaystyle\sum_jx_jr_j}
 \end{equation}
 
 O volume e área superficial relativos de van der Waals, para cada molécula $i$,
@@ -121,11 +121,11 @@ podem ser calculados pelas propriedades $R_k$  e $Q_k$  dos grupos estruturais
 $k$ :
 
 \begin{equation}\label{eq:006}
-r_i = \displaystyle\sum_{k=1}^nv_k^{(i)}R_k
+r_i = \displaystyle\sum_kv_k^{(i)}R_k
 \end{equation}
 
 \begin{equation}\label{eq:007}
-q_i = \displaystyle\sum_{k=1}^nv_k^{(i)}Q_k
+q_i = \displaystyle\sum_kv_k^{(i)}Q_k
 \end{equation}
 
 A parte residual pode ser obtida utilizando os coeficientes de atividade dos
@@ -134,7 +134,7 @@ solução referência contendo apenas moléculas do tipo $i$ ( $\Gamma_k^{(i)}$ 
 
 
 \begin{equation}\label{eq:008}
-ln\gamma_i^R = \displaystyle\sum_{k=1}^nv^{(i)}_k\left ( ln\Gamma_k -
+ln\gamma_i^R = \displaystyle\sum_kv^{(i)}_k\left ( ln\Gamma_k -
 ln\Gamma_k^{(i)} \right )
 \end{equation}
 
@@ -166,6 +166,159 @@ grupos $n$ e $m$ .
 \begin{equation}\label{eq:012}
 \Psi_{nm} = exp \left ( \frac{-a_{nm} + b_{nm}T + c_{nm}T^2}{T} \right)
 \end{equation}
+\section{Objetivos}
 
+O presente trabaho, tem por objetivo, construir um diagrama de equilíbrio
+líquido-vapor (VLE) para um sistema bicomponente (etano/propeno) em dadas
+condições de pressão e temperatura. Para isso, diferentes modelos e
+métodos de cálculo serão usados e, por fim, será realizada uma análise
+qualitativa dos restultados obtidos, comparando-os com valores obtidos experimentalmente.
+
+
+\section{Metodologia}
+
+Os dados experimentais do referente ao diagrama de equilíbrio líquido-vapor da
+mistura etano (1) e propeno (2), na temperatura de 100 ºF, foram retirados do
+artigo publicado por \citeonline{McKay1951} e apresentados na \autoref{tab:dadosexp}. Foram
+utilizado dois modelos pra prever os dados de equilíbrio: Lei de Raoult (\autoref{eq:raoult}) e Lei de
+Raoult modificada (\autoref{eq:raoultmod}). A primeira, considera tanto a fase
+líquida quanto a fase vapor ideais. A segunda, faz a consideração da fase
+líquida como sendo não ideal, através da indtrodução do coeficiente de
+ativiadade ($\gamma_i$)
+
+\begin{equation}\label{eq:raoult}
+\sum Py_i = \sum x_iP_i^{sat}
+\end{equation}
+
+\begin{equation}\label{eq:raoultmod}
+\sum Py_i = \sum x_i\gamma_iP_i^{sat}
+\end{equation}
+onde $P$ é a pressão do sistema (psi); $y_i$ e $x_i$ são as frações molares do
+componente $i$ nas fases vapor e líquida, respectivamente; e $P_i^{sat}$ é a pressão de
+saturação (psi) do componente $i$ na temperatura de interesse.
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.3}
+\caption{Dados experimentais do equilíbrio líquido-vapor da mistura
+etano(1)/propeno(2) a 100 ºF.}
+\sisetup{table-format=2.4,round-mode=places,round-precision=3}
+\footnotesize
+\center
+\begin{tabular}{SSS[table-format=4.1,round-mode=places,round-precision=0]}
+\toprule
+   {$x_1$} & {$y_1$}& {$P$ (psi)} \\
+\midrule 
+  0,000 & 0,000 & 227 \\
+  0,048 & 0,118 & 250 \\
+  0,157 & 0,317 & 300 \\
+  0,260 & 0,447 & 350 \\
+  0,361 & 0,543 & 400 \\
+  0,461 & 0,626 & 450 \\
+  0,554 & 0,697 & 500 \\
+  0,643 & 0,759 & 550 \\
+  0,727 & 0,813 & 600 \\
+  0,809 & 0,863 & 650 \\
+  0,894 & 0,912 & 700 \\
+  0,930 & 0,930 & 722 \\
+\bottomrule
+%\multicolumn{3}{c}{Fonte: adaptado de \citeonline{McKay1951}}
+\end{tabular}
+\label{tab:dadosexp}
+\end{table}
+
+Além desses dois modelos, utilizou-se um outro método, o qual considera ambas as
+fases não ideiais. Nesse modelo ($\phi-\phi$), fez-se o uso da equação de
+estado Peng-Robinson para o cálculo das propriedades da fase vapor e da fase
+líquida.
+Para a realização desses cálculos, utilizou-se o simulador de processos $iiSE$. Através
+desse simulador, determinou-se também as pressões de saturação de cada
+componente a 100 ºF e os coeficientes de atividade (utilizando o modelo UNIFAC modificação Dortmund). Os códigos de programação foram implementados em
+liguagem $Java$ utilizando o ambiente do Eclipse Mars Release (4.5.0).
+
+
+\section{Resultados}
+
+
+
+\subsection{Lei de Raoult e Lei de Raoult Modificada}
+
+A \autoref{fig:raoult01} apresenta um comparativo dos pontos experimentais com
+os valores calculados via as leis de Raoult e Raoult Modificado via UNIFAC(Do).
+Observa-se que a curva via UNIFAC(Do) aproxima-se mais dos pontos experimentais
+quando na fase líquida, porém a distância existente para os mesmos pontos na
+fase gasosa é explicada pelo aumento da pressão. Ambas as leis não obtiveram
+sucesso no cálculo da propriedade supercrítica do etano pois este tipo de
+modelo não consegue prever tal comportamento.
+
+\begin{figure}[htb]
+\centering
+{\includegraphics[width=0.8\textwidth]{img/VLE-Ethane(1)Propylene(2)-x1y1&Pressure-Raoult-RaoultMod.pdf}}
+\caption{Diagrama de equilíbrio $P-xy$ da mistura de etano (1) e
+propeno (2) calculados com as Leis de Raoul e Raoult Modificada utilizando
+modelo de atividade UNIFAC(Do)}
+\label{fig:raoult01}
+\end{figure}
+
+A \autoref{fig:raoult02} mostra um comparativo dos valores de fração molar da
+fase gasosa e da fase líquida para o etano utilizando as leis de Raoult e Raoult
+Modificado via UNIFAC (Do). Observa-se que as curvas ficaram distantes dos
+pontos experimentais exceto para pressões mais baixas.
+
+\begin{figure}[htb]
+\centering
+{\includegraphics[width=0.8\textwidth]{img/VLE-Ethane(1)Propylene(2)-x1&y1-Raoult-RaoultMod.pdf}}
+\caption{Diagrama de equilíbrio $y-x$ da mistura de etano (1) e
+propeno (2) calculados com as Leis de Raoul e Raoult Modificada utilizando
+modelo de atividade UNIFAC(Do)}
+\label{fig:raoult02}
+\end{figure} 
+
+
+\subsection{Método $\phi-\phi$} 
+
+As Figuras \ref{fig:phi01} e \ref{fig:phi02} apresentam a predição do método
+$\phi-\phi$ utilizando Peng-Robinson como equação de estado para a mistura
+etano e propeno. Apesar das mesmas não evidenciarem os valores
+extremos, tais mostram que tal método obteve uma melhor predição dos valores
+experimentais quando comparada àquelas mostradas nas Figuras
+\ref{fig:raoult01} e \ref{fig:raoult02}.
+
+\begin{figure}
+\centering
+{\includegraphics[width=0.8\textwidth]{img/VLE-Ethane(1)Propylene(2)-x1y1&Pressure-PengRobinson.pdf}}
+\caption{Diagrama de equilíbrio $P-xy$ da mistura de de etano (1) e
+prepeno (2) calculados com as EoSs PR}
+\label{fig:phi01}
+\end{figure}
+
+\begin{figure}
+\centering
+{\includegraphics[width=0.8\textwidth]{img/VLE-Ethane(1)Propylene(2)-x1&y1-PengRobinson.pdf}}
+\caption{Diagrama de equilíbrio $y-x$ da mistura de de etano (1) e
+prepeno (2) calculados com as EoSs PR}
+\label{fig:phi02}
+\end{figure}
+\clearpage
+
+\section{Conclusões}
+
+Este trabalho visou o estudo da predição e construção de diagramas de equílibrio
+líquido-vapor (mistura etano e propeno) utilizando diferentes modelos de
+cálculo. Foram utilizadas as Leis de Raoult e Raoult Modificada (com UNIFAC(Do)
+para cálculo do coeficiente de atividade) e o modelo $\phi-\phi$ utilizando Peng-Robinson como equação de
+estado e os valores preditos foram comparadas qualitativamente a dados
+experimenais.
+
+A partir dos resultados apresentados, conclui-se que o modelo $\phi-\phi$
+preveu melhor os valores experimentais, visto que esse método considera ambas as
+fases sendo não ideais. Tanto a lei de Raoult, como a lei de Raoult modificada,
+apresentaram resultados menos satisfatórios para tais cálculos, sendo que a
+primeira considera ambas as fases ideais e a segunda faz a consideração de
+líquido não ideal. 
+
+Os valores obtidos para o líquido, foram melhores aproximados pela lei de
+Raoult Modificada. Já os do vapor, foram aproximados melhor através da Lei de Raoult.
+Contudo, nenhum desses modelos foi capaz de prever o
+comportamento supercrítico do etano.
 
 
