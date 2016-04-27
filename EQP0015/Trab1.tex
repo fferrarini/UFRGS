@@ -1,3 +1,11 @@
+\section{Objetivos}
+
+O presente trabalho, tem por objetivo, construir um diagrama de equilíbrio
+líquido-vapor (ELV) para um sistema bicomponente (etano/propeno) em dadas
+condições de pressão e temperatura. Para isso, diferentes modelos e
+métodos de cálculo serão usados e, por fim, será realizada uma análise
+qualitativa dos restultados obtidos, comparando-os com valores obtidos experimentalmente.
+
 \section{Introdução Teórica}
 
 \subsection{Modelo UNIFAC}
@@ -8,22 +16,22 @@
 desvios positivos ou negativos da lei de Raoult. O método 
 UNIFAC segue o modelo “Analytical-Solution-of-Groups”, ou ASOG,
 de \citeonline{Derr1969}, onde os coeficientes de atividade
-em misturas são relacionados ás interações entre os 
+em misturas são relacionados às interações entre os 
 grupos estruturais. Além disso, o método UNIFAC pode 
 ser usado para prever os coeficientes de atividade para 
 os componentes em misturas binárias desconhecidas que
-fazem parte de um determinado sistemas multicomponentes. 
+fazem parte de um determinado sistema multicomponente. 
 Tais previsões podem ser utilizadas na geração de parâmetros
  binários em qualquer modelo de excesso de Gibbs.
 
 %\apudonline{Fredenslund1975}{Fredenslund1975} 
 
 \citeonline{Pollmann1996} citam que o logaritmo do coeficiente de
-atividade em uma mistura é calculado (\autoref{eq:001}) via o somatório de duas
-contribuições:
-a combinatorial, devido aos diferentes tamanhos e formatos das moléculas, e a
-residual representa a contribuição via interação energética entre as
-moléculas. A relação que descreve tal somatório é:
+atividade em uma mistura é calculado via o somatório de duas
+contribuições: a combinatorial, devido aos diferentes tamanhos e formatos das
+moléculas, e a residual, que representa a contribuição via interação energética entre as
+moléculas. A relação que descreve tal somatório está apresentada na
+\autoref{eq:001}:
 \begin{equation}\label{eq:001}ln\gamma_i = ln\gamma_i^C +
 ln\gamma_i^R\end{equation}
 onde
@@ -42,13 +50,13 @@ interação dos parâmetros dos grupos funcionais.
 
 \citeonline{Nagata1981} propuseram modificações apenas no termo residual
 adicionando um termo tipo Flory-Huggins na relação de $ln\gamma_i^R$. 
-Ademais, alterou a relação para com a fração de área 
-superficial, utilizado originalmente, para dependência 
+Além disso, alteraram a relação com a fração de área 
+superficial, utilizada originalmente, para uma dependência 
 da fração molar do grupo funcional, além de relacionar o 
 parâmetro de interação dos grupos funcionais com a 
 temperatura. Entretanto, os resultados obtidos foram 
-similares ao UNIFAC original, além de não haver grande 
-evolução nos problemas encontrados no modelo original.
+similares ao UNIFAC original e não houve grande 
+solução dos problemas encontrados no modelo original.
 
 \citeonline{Larsen1987} propuseram modificações na expressão 
 combinatorial do
@@ -58,7 +66,7 @@ O termo combinatorial tornou-se dependente do parâmetro de
 fração volumétrica do grupo funcional. O termo residual teve 
 apenas modificação na interação com a temperatura. Como 
 resultado, o modelo proposto obteve melhorias nas predições 
-de equilíbrios líquido-vapor (VLE).
+de equilíbrios líquido-vapor (ELV).
 
 \citeonline{Weidlich1987} publicaram outro modelo modificado do
 UNIFAC original, denominando-o de UNIFAC (Dortmund). Dentre as 
@@ -81,8 +89,7 @@ explicado na seção a seguir.
 
 \subsection{Modelo UNIFAC Dortmund (Do)}
 
-Segundo \citeonline{Jakob2006}, a contribuição do método 
-UNIFAC (Dortmund), ou
+Segundo \citeonline{Jakob2006}, UNIFAC (Dortmund), ou
 UNIFAC (Do), é um modelo da energia livre de Gibbs em 
 excesso ($g^E$), que permite a predição dos coeficientes de atividade em
 sistemas não-eletrolisados, em função da temperatura e 
@@ -97,7 +104,7 @@ de Waals ($R_k$) e da área superficial ($Q_k$) dos grupos funcionais.
 Comparativamente com o modelo UNIFAC original, o UNIFAC (Do)
  apresenta uma mudança empírica na parte combinatorial ($V'$) 
 para melhor descrever os sistemas assimétricos, como 
-mostrado nas Equações \ref{eq:002} a \ref{eq:008}.
+mostrado nas Equações \ref{eq:002} a \ref{eq:007}.
 
 \begin{equation}\label{eq:002}
 ln\gamma_i^C = 1 - V'_i + ln(V'_i) - 5q_i\left [ 1
@@ -138,8 +145,8 @@ ln\gamma_i^R = \displaystyle\sum_kv^{(i)}_k\left ( ln\Gamma_k -
 ln\Gamma_k^{(i)} \right )
 \end{equation}
 
-A dependência da concentração do coeficiente de atividade do grupo funcional
-$\Gamma_k$ pode ser descrito via \autoref{eq:009}:
+A dependência da composição é expressa através do termo $\Gamma_k$, como
+mostrado na \autoref{eq:009}:
 
 \begin{equation}\label{eq:009}
 ln\Gamma_k = Q_k\left ( 1 - ln\left ( \displaystyle\sum_m\Theta_m\Psi_{mk}
@@ -166,13 +173,6 @@ grupos $n$ e $m$ .
 \begin{equation}\label{eq:012}
 \Psi_{nm} = exp \left ( \frac{-a_{nm} + b_{nm}T + c_{nm}T^2}{T} \right)
 \end{equation}
-\section{Objetivos}
-
-O presente trabaho, tem por objetivo, construir um diagrama de equilíbrio
-líquido-vapor (VLE) para um sistema bicomponente (etano/propeno) em dadas
-condições de pressão e temperatura. Para isso, diferentes modelos e
-métodos de cálculo serão usados e, por fim, será realizada uma análise
-qualitativa dos restultados obtidos, comparando-os com valores obtidos experimentalmente.
 
 
 \section{Metodologia}
@@ -274,7 +274,7 @@ modelo de atividade UNIFAC(Do)}
 \end{figure} 
 
 
-\subsection{Método $\phi-\phi$} 
+\subsection{Método da Igualdade de Fugacidades ($\phi-\phi$)} 
 
 As Figuras \ref{fig:phi01} e \ref{fig:phi02} apresentam a predição do método
 $\phi-\phi$ utilizando Peng-Robinson como equação de estado para a mistura
@@ -304,7 +304,7 @@ prepeno (2) calculados com as EoSs PR}
 
 Este trabalho visou o estudo da predição e construção de diagramas de equílibrio
 líquido-vapor (mistura etano e propeno) utilizando diferentes modelos de
-cálculo. Foram utilizadas as Leis de Raoult e Raoult Modificada (com UNIFAC(Do)
+cálculo. Foram utilizadas as Leis de Raoult e Raoult Modificada (com UNIFAC(Do))
 para cálculo do coeficiente de atividade) e o modelo $\phi-\phi$ utilizando Peng-Robinson como equação de
 estado e os valores preditos foram comparadas qualitativamente a dados
 experimenais.
