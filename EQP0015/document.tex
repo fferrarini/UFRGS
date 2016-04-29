@@ -1,124 +1,38 @@
 
-\documentclass[a4paper,11pt]{article}
-\usepackage{color}
-\usepackage[T1]{fontenc}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\usepackage{ae}
-% \usepackage[latin1]{inputenc}
-\usepackage[brazil]{babel}
-\usepackage[brazil]{hyperref}
-\usepackage[alf]{abntex2cite}
-\usepackage[utf8]{inputenc}
-  
-\usepackage{graphicx} 
-\usepackage{url} 
-\usepackage{lastpage}
-\usepackage{multirow}
-\usepackage{indentfirst}
-\usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{booktabs}
-\usepackage{pgfplots}
-\usepackage{xifthen}
-\usepackage{threeparttable}
-\usepackage[version=3]{mhchem} % Formulas químicas automaticas, comando \ce{}
-\usepackage{chemfig} % Formulas químicas automaticas, comando \ce{}
-\usepackage{longtable}
-\usepackage{pdflscape}
-\usepackage{adjustbox}
-\usepackage{multirow}
-\usepackage{indentfirst}
-\usepackage{lscape}
-\usepackage{subfloat}
-\usepackage{float}
-\usepackage{subfig}
-\usepackage{varwidth}
-\newcommand{\subfigref}[1]{\hyperref[#1]{Figura~\ref*{#1}}}
-\newcommand{\code}[1]{\texttt{#1}}
+\input{preamble} 
 
-\sisetup{output-decimal-marker = {,}}
-\newcommand{\theauthori}{}
-\newcommand{\theauthorii}{}
-\newcommand{\theauthoriii}{}
-\renewcommand{\title}[1]{\newcommand{\thetitle}{#1}}
-\renewcommand{\author}[1]{\newcommand{\theauthor}{#1}}
-\newcommand{\authori}[1]{\renewcommand{\theauthori}{#1}}
-\newcommand{\authorii}[1]{\renewcommand{\theauthorii}{#1}}
-\newcommand{\authoriii}[1]{\renewcommand{\theauthoriii}{#1}}
-\newcommand{\class}[1]{\newcommand{\theclass}{#1}}
-\newcommand{\classProffessor}[1]{\newcommand{\theclassProffessor}{#1}}
-\usepackage{palatino}
-\renewcommand{\textsc}[1]{\fontshape{sc} \fontfamily{\sfdefault} \selectfont #1}
-%Setar espaçamento
-\usepackage{setspace}
-\onehalfspacing 
-%\simplespacing
-%\doublespacing
+% \usepackage[miktex]{gnuplottex} %Windows
+%\usepackage{gnuplottex} %Ubuntu
 
-% o novo maketitlepage
-\renewcommand{\maketitle}{
-% Primeira página de título  
-\pagestyle{empty}
-\begin{center}
-\textsc \large
-Universidade Federal do Rio Grande do Sul \\
-Escola de Engenharia \\
-Departamento de Engenharia Química \\
-Programa de Pós--Graduação em Engenharia Química
-\vfill
-\Large \textsc \theclass \\ Prof:~\theclassProffessor
-\vfill \vfill
-\huge \bfseries \textsc  
-\thetitle
-\vfill \vfill
-%\begin{varwidth}[t]{\textwidth}
-\Large \bfseries \textsc 
-\theauthor\\
-\ifthenelse{\equal{\theauthori}{}}{}{\theauthori\\}
-\ifthenelse{\equal{\theauthorii}{}}{}{\theauthorii\\}
-\ifthenelse{\equal{\theauthoriii}{}}{}{\theauthoriii}
-%\end{varwidth}
-\vfill \vfill 
-\large \textsc Porto Alegre, RS \\ \today
-\end{center}
-\clearpage
-\setcounter{page}{1}
-\pagestyle{fancy} 
-\lhead{}
-} % end maketitle 
+\begin{document} 
+\class{EQP0015--Termodinâmica Aplicada a \\ Processos de Separação}
+\classProffessor{Paula Bettio Staudt}
+\classProffessorii{Rafael de Pelegrini Soares}
+% \classProffessoriii{Fulano 2}
+% \classProffessoriv{Fulano 3}
+ 
+\author{Eduardo Ribas Nowaczyk}
+\authorii{Fabrício Ferrarini}
+% \authoriii{Fulano 2}
+% \authoriv{Fulano 3}
 
-\begin{document}
-
-\class{EQP0015--Termodinâmica Aplicada a Processos de Separação}
-\classProffessor{Paula Bettio Staudt / Rafael de Pelegrini Soares}
 %\title{Trabalho 01: Construção de um diagrama de fases líquido-vapor}
 %\title{Trabalho 02: Cálculo de Ponto de Bolha com Equações de Estado}
-\title{Trabalho 03: Predição e discussão da curva EFV de um petróleo}
-\author{Eduardo Ribas Nowaczyk}
-% Para mais autores do trabalho, descomentar as linhas abaixo
-\authori{Fabrício Ferrarini}
-% \authorii{Aluno3}
-% \authoriii{Aluno4}
+\title{Predição e discussão da curva EFV de um petróleo}
 
-% Capa
-\maketitle   
 
-% Incluir seções do trabalho
-%\include{Trab1}  
-%\include{Trab2}
-\include{Trab3} 
-%\include{Trab4}
-
+\titlemin{Trabalho~--~3}
  
- \newdimen\bibindent
-\setlength\bibindent{1.5em} % identaçao das referencias
-{ % Um lineskip menor neste contexto de referencias
-\rhead{}
+\maketitle 
+ 
+% \include{Trab1}
+% \include{Trab2}
+\include{Trab3} 
+ 
+\newdimen\bibindent
+\setlength\bibindent{1.5em} {
+\rhead{} 
 \baselineskip 4.3mm 
-% Edite o arquivo bib.bib com as suas próprias referências 
-\bibliography{bib}
-} 
-
+\bibliography{bib}}
 
 \end{document}

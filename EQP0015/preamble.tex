@@ -1,0 +1,186 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{ae}
+\usepackage[utf8]{inputenc}
+% \usepackage[latin1]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[brazil]{hyperref}
+\usepackage[alf]{abntex2cite}
+\usepackage{listings}
+ 
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{lastpage}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepgfplotslibrary{colormaps} 
+\usepackage{xifthen}
+%\usepackage[miktex]{gnuplottex}
+%\usepackage{gnuplottex}
+
+\usepackage{subfloat}
+\usepackage{float} 
+\usepackage{subfig}
+\usepackage{varwidth}
+\newcommand{\subfigref}[1]{\hyperref[#1]{Figura~\ref*{#1}}}
+
+\sisetup{output-decimal-marker = {,}}
+\newcommand{\theauthorii}{}
+\newcommand{\theauthoriii}{}
+\newcommand{\theauthoriv}{}
+\renewcommand{\title}[1]{\newcommand{\thetitle}{#1}}
+\renewcommand{\author}[1]{\newcommand{\theauthor}{#1}}
+\newcommand{\authorii}[1]{\renewcommand{\theauthorii}{#1}}
+\newcommand{\authoriii}[1]{\renewcommand{\theauthoriii}{#1}}
+\newcommand{\authoriv}[1]{\renewcommand{\theauthoriv}{#1}}
+
+\newcommand{\class}[1]{\newcommand{\theclass}{#1}}
+\newcommand{\theclassProffessorii}{}
+\newcommand{\theclassProffessoriii}{}
+\newcommand{\theclassProffessoriv}{}
+\newcommand{\classProffessor}[1]{\newcommand{\theclassProffessor}{#1}}
+\newcommand{\classProffessorii}[1]{\renewcommand{\theclassProffessorii}{#1}}
+\newcommand{\classProffessoriii}[1]{\renewcommand{\theclassProffessoriii}{#1}}
+\newcommand{\classProffessoriv}[1]{\renewcommand{\theclassProffessoriv}{#1}}
+
+\newcommand{\thetitlemin}{}
+\newcommand{\titlemin}[1]{\renewcommand{\thetitlemin}{#1}}
+
+\usepackage{palatino}
+\renewcommand{\textsc}[1]{\fontshape{sc} \fontfamily{\sfdefault} \selectfont #1}
+
+\mathchardef\period=\mathcode`.
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\diff}{d}
+
+\allowdisplaybreaks
+\newenvironment{conditions}[1][]
+  {#1 \begin{tabular}[t]{>{$}r<{$} @{${}={}$} l @{$\quad$}r @{  }l}}
+  {\end{tabular}\\}
+
+  \usetikzlibrary{shapes,shadows}
+  \tikzstyle{exercisebox} = [draw=black, rectangle, 
+  inner sep=10pt, style=rounded corners, drop shadow={fill=gray,
+  opacity=1}]
+  \tikzstyle{exercisetitle} =[fill=white]
+ \newcommand{\boxexercise}[2]{ 
+    \begin{center}
+      \begin{tikzpicture}
+        \node [exercisebox, fill=black!1!] (box)
+        {\begin{minipage}{0.9\textwidth}
+            \setlength{\parindent}{1em}
+            \footnotesize  \vspace{\belowdisplayskip} #2
+          \end{minipage}};
+        \node[exercisetitle, right=10pt, draw=black, style=rounded corners] at
+        (box.north west) {Exercício: #1};
+      \end{tikzpicture}
+    \end{center}
+  }
+
+  \tikzstyle{examplebox} = [draw=black, rectangle, 
+  inner sep=10pt, style=rounded corners, drop shadow={fill=gray,
+  opacity=1}]
+  \tikzstyle{exampletitle} =[fill=white]
+ \newcommand{\boxexample}[2]{ 
+    \begin{center}
+      \begin{tikzpicture}
+        \node [examplebox, fill=green!10!] (box)
+        {\begin{minipage}{0.9\textwidth}
+            \setlength{\parindent}{1em}
+            \footnotesize \vspace{\belowdisplayskip} #2
+          \end{minipage}};
+        \node[exampletitle, right=10pt, draw=black, style=rounded corners] at
+        (box.north west) {Exemplo: #1};
+      \end{tikzpicture}
+    \end{center}
+  }
+
+\onehalfspacing
+\newcommand{\code}[1]{\texttt{#1}}
+
+\renewcommand{\lstlistingname}{Código}
+\lstset{ language=Matlab,
+  basicstyle=\ttfamily,
+  basicstyle=\fontfamily{pcr}\fontseries{m}\selectfont\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  commentstyle=\color[rgb]{0,0.5,0},
+  numbers=left,
+  showstringspaces=false,
+  morekeywords={matlab2tikz},
+  keywordstyle=\color{blue},%
+  numberstyle=\tiny\sffamily\color{black},
+  frame=tb,
+  stringstyle=\color[rgb]{0.5,0,0.5},
+  numberstyle=\fontfamily{pcr}\fontseries{m}\selectfont\tiny,
+  aboveskip=10pt,belowskip=20pt,
+  }
+
+\usepackage{lastpage}
+\usepackage{fancyvrb}
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\scriptsize,frame=single,
+rulecolor=\color{lightgray!80},
+}
+
+\usepackage{zref-abspage,zref-lastpage}
+\makeatletter
+  \newcommand*{\iffancylastpage}{%
+    \ifnum\zref@extractdefault{LastPage}{abspage}{-1}%
+        =\numexpr\value{abspage}+1\relax
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\@secondoftwo
+    \fi
+  }%
+\makeatother
+
+% o novo maketitlepage
+\renewcommand{\maketitle}{
+% Primeira página de título  
+\pagestyle{empty}
+\begin{center}   
+\textsc \large  
+Universidade Federal do Rio Grande do Sul \\
+Escola de Engenharia \\
+Departamento de Engenharia Química \\
+Programa de Pós--Graduação em Engenharia Química
+\vfill
+\Large \textsc \theclass \\
+\begin{varwidth}[t]{\textwidth}
+Prof:~\theclassProffessor\\
+\ifthenelse{\equal{\theclassProffessorii}{}}{}{Prof:~\theclassProffessorii\\}
+\ifthenelse{\equal{\theclassProffessoriii}{}}{}{Prof:~\theclassProffessoriii\\}
+\ifthenelse{\equal{\theclassProffessoriv}{}}{}{Prof:~\theclassProffessoriv}
+\end{varwidth}
+\vfill
+\huge \bfseries \textsc  
+\thetitle
+\vfill 
+\begin{varwidth}[t]{\textwidth}
+\Large \bfseries \textsc 
+\theauthor\\
+\ifthenelse{\equal{\theauthorii}{}}{}{\theauthorii\\}
+\ifthenelse{\equal{\theauthoriii}{}}{}{\theauthoriii\\}
+\ifthenelse{\equal{\theauthoriv}{}}{}{\theauthoriv}
+\end{varwidth}
+\vfill
+\large \textsc Porto Alegre, RS \\ \today
+\end{center}
+\clearpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+\lhead{\slshape\bfseries\large\MakeUppercase\thetitlemin}
+% \lfoot{\iffancylastpage{\color{lightgray}Certified by MacGyver}{}}%
+\rfoot{\iffancylastpage{Provided by \Large \LaTeX}{}}%
+} % end maketitle 
