@@ -3,7 +3,7 @@ O presente trabalho tem por objetivo construir uma curva de EFV (do
 ingês, \emph{equilibrium flash vaporization}) para um petróleo qualquer. A
 composição do óleo será determinada a partir de valores de TBP (do ingês,
 \emph{true boiling point} - ponto de ebulição verdadeiro) obtidos de
-informações fornecidadas pelo site da TOTSA.
+informações fornecidadas pelo site da \citeauthor{TOTSA2016}.
 
 Para isso, inicialmente será realizada uma breve contextualização de alguns
 tópicos, tais como análises de TBP e EFV, bem como algumas regras de mistura
@@ -56,7 +56,8 @@ onde $\kappa = (0,37464+1,54226w-0,26992w^2)$.
  acêntrico:
  
   \begin{equation}\label{eq:w}
-w \equiv -1 - log_{10}\left [ P^{sat} \left ( T_r = 0,7 \right )/P_c \right ]
+w \equiv -1 - log_{10}\left [ P^{sat} \frac{( T_r = 0,7 )}{P_c}
+\right ]
 \end{equation} 
 onde $ P^{sat} \left ( T_r = 0,7 \right )$ é a pressão de saturação de dada
 substância em uma termperatura reduzida igual a 0,70.
@@ -118,20 +119,20 @@ moléculas. Os coeficientes $a$ e $b$ da equação de estado de van der Waals s�
 proporcionais aos valores de $\varepsilon$ e $\sigma$.
 
 Sabendo que $\sigma_{ij}$, para $i \neq j$, a interação entre diâmetro
-distintos, para moléculas esféricas, é mostrado na \autoref{eq:sigmaij}
+distintos, para moléculas esféricas, é mostrado na \autoref{eq:sigmaij}:
 
 \begin{equation}\label{eq:sigmaij}
 \sigma_{ij} = \frac{\sigma_{ii} + \sigma_{jj}}{2}
 \end{equation}
 
 Tal leva a seguinte expressão de $b_{ij}$ para moléculas esféricas, conforme
-\autoref{eq:bij}
+\autoref{eq:bij}:
 
 \begin{equation}\label{eq:bij}
 b_{ij} = \left ( \frac{b_{ii}^{1/3} + b_{jj}^{1/3}}{2} \right )^3
 \end{equation}
 
-E, para moléculas não esféricas, a relação é descrita na \autoref{eq:bij2}
+E, para moléculas não esféricas, a relação é descrita na \autoref{eq:bij2}:
 
 \begin{equation}\label{eq:bij2}
 b_{ij} = (1 - l_{ij})\left [ b_{ii}^{1/3} + b_{jj}^{1/3} \right ]^3
@@ -140,14 +141,13 @@ b_{ij} = (1 - l_{ij})\left [ b_{ii}^{1/3} + b_{jj}^{1/3} \right ]^3
 \subsubsection{Regra de Mistura vdW para EoS PR}
 
 A equação de Peng-Robinson (\autoref{eq:PReq}) pode ser reescrita como mostrado
-na \autoref{eq:PRnew}
+na \autoref{eq:PRnew}:
 
 \begin{equation}\label{eq:PRnew}
 Z = \frac{\nu}{\nu - b} - \frac{(a/RT) + d - 2 \sqrt{ad/RT}}{(\nu + b) +
 (b/\nu)(\nu - b)}
 \end{equation}
-onde: $a = a(T_c)(1 + \kappa)^2$ e $d =
-\displaystyle\frac{a(T_c)\kappa^2}{RT_c}$.
+onde: $a = a(T_c)(1 + \kappa)^2$ e $d = a(T_c)\kappa^2/RT_c$.
 
 Assim, a equação de estado de Peng-Robinson apresenta 3 termos
 independentes: $a$, $b$ e $d$. Deste modo, seguindo o modelo antes mostrado para
@@ -175,7 +175,7 @@ d_{ij} = (1 -m_{ij})\left [ \frac{d_{ii}^{1/3} + d_{jj}^{1/3}}{2} \right]^3
 \subsubsection{SCMR}
 Conforme é apresentado por \citeonline{Staudt2012}, esta regra de
 mistura apresenta volume de excesso negligenciável e a fração $ u =
-\frac{V}{b} $ é constante. A \autoref{eq:gphi1} apresenta a expressão para
+\frac{V}{b} $ é constante. A \autoref{eq:gphi1} apresenta a expressão para 
 energia de Gibbs em excesso e a \autoref{eq:lnphi} para o coeficiente de
 fugacidade para mistura.
 
@@ -211,7 +211,7 @@ líquido do sistema puro nas temperaturas e pressões do sistema. Para baixas pr
 \subsubsection{PSRK}
 
 No trabalho de \citeonline{Chen2002}, é mostrado como é obtido o parâmetro $a$.
-A expressão para tal é ilustrada na \autoref{eq:abrt}.
+A expressão para tal é ilustrada na \autoref{eq:abrt}:
 
 
 \begin{equation}\label{eq:abrt}
@@ -369,7 +369,9 @@ aleatoriamente.
 
 \clearpage 
 
-\section{Resultados} 
+\section{Resultados}
+
+\subsection{Análise das curvas TBP e EFV} 
 
 Realizou-se a simulação da curva de EFV no \emph{software} $iiSE$, para todas as
 regras de misturas, variando-se a temperatura de 0,0 $^\circ$C até 600,0
@@ -472,6 +474,23 @@ respectivamente, 3,0 e 18,0 {\%}.
 
 \clearpage
 
+\subsection{Análise das composições de topo e de fundo}
+
+A apresentação dos resultados desta seção será feita na faixa entre
+10{\%} e 90{\%} de petróleo vaporizado, nas correntes de topo (vapor) e fundo
+(líquido). Essa faixa foi definida levando em
+consideração à possibilidade de comportamentos não previstos para os componentes, 
+podendo estes serem gerados devido a erros experimentais ou, mais pertinente 
+para este trabalho, problemas na simulação. Ademais, ressalta-se novamente 
+acima dos 90,5{\%} o simulador apresentou resultados que previam totalmente
+a vaporização do petróleo.
+
+A \autoref{fig:liq} traz uma análise da fração molar dos componentes leves 
+(etano, propano, iso-butano e n-butano) em função do percentual vaporizado 
+para a fase líquida no fundo do flash. Ela mostra que, como esperado, quanto
+ mais leve o componente, menor a quantidade do mesmo no fundo no início. Além 
+ disso, o decaimento $1/x^2$ é visível para todos os componentes que, ao final
+ do instante de 90,5{\%} vaporizado, estão praticamente zerados.
 
 \begin{figure}[htb]
 \centering
@@ -481,13 +500,11 @@ percentual vaporizado}
 \label{fig:liq}
 \end{figure}
 
-\begin{figure}[htb]
-\centering
-{\includegraphics[width=1.0\textwidth]{img/trab3vap.pdf}} 
-\caption{Composição dos leves no produto de topo em função do percentual
-vaporizado}
-\label{fig:vap}
-\end{figure}
+A \autoref{fig:liqall} apresenta uma análise da fração molar de alguns pseudo
+componentes no fundo do flash. Os componentes foram
+selecionados aleatoriamente e a legenda apresenta a massa molar respectiva.
+Observa-se que os componentes mais leves são os primeiros a vaporizarem a tenderem sua fração molar à zero. Já os mais pesados apresentam um ponto máximo de fração 
+molar antes de também reduzirem.
 
 \begin{figure}[htb] 
 \centering
@@ -496,6 +513,35 @@ vaporizado}
 percentual vaporizado}
 \label{fig:liqall}
 \end{figure}
+
+A \autoref{fig:vap} mostra a fração molar e o porcentual vaporizado no produto
+de topo para os componentes leves (etano, propano, iso-butano e n-butano), em fase vapor. 
+Observa-se que todos seguem o mesmo comportamento apresentado na
+\autoref{fig:liq}, a exceção de que os valores finais não mais tendem a zero.
+Por ser o componente de menor porcentagem volumétrica na alimentação, o etano praticamente não aparece
+a partir dos 40{\%} vaporizados. Os demais se apresentam, no final, seguindo a
+{\%} ordem de quantidade, em volume, na composição de alimentação, ou seja, 
+o n-butano detém a maior fração molar, entre os 4 componentes comparados, 
+com cerca de 0,04{\%}.
+
+\clearpage
+
+\begin{figure}[htb]
+\centering
+{\includegraphics[width=1.0\textwidth]{img/trab3vap.pdf}} 
+\caption{Composição dos leves no produto de topo em função do percentual
+vaporizado}
+\label{fig:vap}
+\end{figure}
+
+A \autoref{fig:vapall} evidencia a fração molar em função do porcentual vaporizado
+os mesmos componentes pesados mostrados na \autoref{fig:liqall}, mas agora em
+fase vapor, no produto de topo. Observa-se que aquele de menor massa molar
+apresenta decaimento da sua fração molar devido ao acréscimo das demais. Além disso, como esperado, os 
+componentes mais pesados surgem, na figura, ao passo que a vaporização
+acontece.
+
+\clearpage
 
 \begin{figure}[htb]
 \centering
