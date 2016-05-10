@@ -9,7 +9,7 @@ Para isso, inicialmente será realizada uma breve contextualização de alguns
 tópicos, tais como análises de TBP e EFV, bem como algumas regras de mistura
 que serão usadas no trabalho.
 
-\section{Introdução teórica}
+\section{Introdução teórica} 
 
 \subsection{TBP}
 A curva de TBP (\emph{true boiling point}) ou PEV (ponto de ebulição verdadeiro)
@@ -33,7 +33,7 @@ experimentos, são medidas as temperaturas de equilíbrio para diferentes valore
  onde ocorre equilíbrio líquido-vapor como, por exemplo, refervedores, condesadores
   parciais, etc).
   
-\subsection{Equação de Estados: Peng-Robinson}
+\subsection{Equação de Estados: Peng-Robinson (PR)}
 
  A equação de \citeonline{Peng1976}, apresentada na
  \autoref{eq:PReq}, faz o uso do fator acêntrico de Pitzer ($w$). Com esse 
@@ -97,7 +97,7 @@ excluído quando ocorre a mistura.
 b_{mix} = \sum_iy_ib_i
 \end{equation}
 
-\subsubsection{van der Waals (vdW)}
+\subsubsection{van der Waals (VDW)}
 \citeonline{Kwak1986} mostra que, para uma mistura binária cuaj energia potencial
 intermolecular expressa na \autoref{eq:uij}, as regras de mistura derivadas são 
 as Equações \ref{eq:sigmacubo} e \ref{eq:esigmacubo}.
@@ -138,7 +138,7 @@ E, para moléculas não esféricas, a relação é descrita na \autoref{eq:bij2}
 b_{ij} = (1 - l_{ij})\left [ b_{ii}^{1/3} + b_{jj}^{1/3} \right ]^3
 \end{equation}
 
-\subsubsection{Regra de Mistura vdW para EoS PR}
+\subsubsection{Regra de Mistura VDW para PR}
 
 A equação de Peng-Robinson (\autoref{eq:PReq}) pode ser reescrita como mostrado
 na \autoref{eq:PRnew}:
@@ -356,7 +356,7 @@ para o poço CLOV - Angola}
 Para a obtenção da curva EFV, foram utilizados os dados experimentais
 de TBP e fez-se o uso do simulador de processo $iiSE$. O modelo termodiâmico
 utilizado foi o de Peng-Robinson com três diferentes regras de mistura: van der
-Waals (vdW), PSRK e SCMR. Para as duas últmas, é necessário o uso de um modelo
+Waals (VDW), PSRK e SCMR. Para as duas últmas, é necessário o uso de um modelo
 de Gibbs em excesso ($g^E$), portanto utilizou-se para ambas o modelo de
 Scatchard-Hildebrand.
 
@@ -399,7 +399,7 @@ mistura na simulação EFV para o óleo CLOV - Angola}
 \begin{tabular}{lccc}   
 \toprule
    &{Temperatura Inicial}&{Temperatura Final}&\multirow{2}{*}{$\Delta$T} \\
-  &{da Fração Vaporizada ($^\circ$C)}&{da Fração Vaporizada
+  &{do \% Vaporizado ($^\circ$C)}&{do \% Vaporizado
    ($^\circ$C)} & \\
 \midrule 
 {EFV: PR+SCMR}	&	73	&	472		&	1 \\
@@ -426,7 +426,7 @@ obtidos do laudo de análise do mesmo.
 
 
 Ao analisar a \autoref{fig:efv}, nota-se que as curvas EFV com as regras de
-mistura SCRM e vdW apresentaram comportamentos semelhantes. Contudo, ao
+mistura SCRM e VDW apresentaram comportamentos semelhantes. Contudo, ao
 utilizar-se PSRK (\emph{Predictive Soave-Redlich-Kwong}), observa-se um desvio
 considerável nos valores iniciais, quando comparado às outras duas. Este fato pode ser explicado devido à não utilização
 do ``pacote fechado'' desta regra de mistura, uma vez que para o modelo de Gibbs
@@ -453,11 +453,11 @@ mistura}
 \begin{tabular}{lcc}   
 \toprule
   {Regras de Mist.} &{Máx. Diferença}&{Faixa de Máx.} \\
-   {Comparadas}&{do \% Vaporizada*}&{diferença de T ($^\circ$C)} \\
+   {Comparadas}&{do \% Vaporizado*}&{diferença de T ($^\circ$C)} \\
 \midrule 
-{SCMR - vdW}	&	1.34	&	{256 - 257}	 \\
+{SCMR - VDW}	&	1.34	&	{256 - 257}	 \\
 {SCMR - PSRK}	&	2.55	&	{151 - 159}	 \\
-{vdW - PSRK}	&	1.88	&	{112 - 118}	 \\
+{VDW - PSRK}	&	1.88	&	{112 - 118}	 \\
 \bottomrule
 \multicolumn{3}{l}{*Diferenças apresentadas em módulo}
 \end{tabular}
@@ -465,14 +465,13 @@ mistura}
 \end{table}
 
 A partir da \autoref{tab:result2}, observa-que a faixa de temperatura para o
-terceiro comparativo (vdW - PSRK) ocorre em uma faixa de temperatura menor que
+terceiro comparativo (VDW - PSRK) ocorre em uma faixa de temperatura menor que
 as demais. Portanto, a mesma acontece quando a percentual vaporizada detém
 valores pequenos (faixas entre 4,13 a 6,0 {\%}), ou seja, trata-se de uma
 diferença significativa (desvio de 31{\%}). A diferença (relativa) do percentual
 vaporizado para o primeiro e segundo comparativo apresentado na tabela foram,
 respectivamente, 3,0 e 18,0 {\%}.
 
-\clearpage
 
 \subsection{Análise das composições de topo e de fundo}
 
@@ -486,15 +485,17 @@ acima dos 90,5{\%} o simulador apresentou resultados que previam totalmente
 a vaporização do petróleo.
 
 A \autoref{fig:liq} traz uma análise da fração molar dos componentes leves 
-(etano, propano, iso-butano e n-butano) em função do percentual vaporizado 
-para a fase líquida no fundo do flash. Ela mostra que, como esperado, quanto
+(etano, propano, \emph{iso}-butano e \emph{n}-butano) em função do percentual
+vaporizado para a fase líquida no fundo do flash. Ela mostra que, como esperado, quanto
  mais leve o componente, menor a quantidade do mesmo no fundo no início. Além 
- disso, o decaimento $1/x^2$ é visível para todos os componentes que, ao final
+ disso, o decaimento é visível para todos os componentes que, ao final
  do instante de 90,5{\%} vaporizado, estão praticamente zerados.
+
+\clearpage
 
 \begin{figure}[htb]
 \centering
-{\includegraphics[width=1.0\textwidth]{img/trab3liq.pdf}} 
+{\includegraphics[width=0.8\textwidth]{img/trab3liq.pdf}} 
 \caption{Composição dos leves no produto de fundo em função do
 percentual vaporizado}
 \label{fig:liq}
@@ -506,29 +507,29 @@ selecionados aleatoriamente e a legenda apresenta a massa molar respectiva.
 Observa-se que os componentes mais leves são os primeiros a vaporizarem a tenderem sua fração molar à zero. Já os mais pesados apresentam um ponto máximo de fração 
 molar antes de também reduzirem.
 
+
 \begin{figure}[htb] 
 \centering
-{\includegraphics[width=1.0\textwidth]{img/trab3liqall.pdf}} 
+{\includegraphics[width=0.8\textwidth]{img/trab3liqall.pdf}} 
 \caption{Composição de alguns pseudos no produto de fundo em função do
 percentual vaporizado}
 \label{fig:liqall}
 \end{figure}
 
 A \autoref{fig:vap} mostra a fração molar e o porcentual vaporizado no produto
-de topo para os componentes leves (etano, propano, iso-butano e n-butano), em fase vapor. 
+de topo para os componentes leves (etano, propano, \emph{iso}-butano e
+\emph{n}-butano), em fase vapor.
 Observa-se que todos seguem o mesmo comportamento apresentado na
 \autoref{fig:liq}, a exceção de que os valores finais não mais tendem a zero.
 Por ser o componente de menor porcentagem volumétrica na alimentação, o etano praticamente não aparece
 a partir dos 40{\%} vaporizados. Os demais se apresentam, no final, seguindo a
 {\%} ordem de quantidade, em volume, na composição de alimentação, ou seja, 
 o n-butano detém a maior fração molar, entre os 4 componentes comparados, 
-com cerca de 0,04{\%}.
-
-\clearpage
+com cerca de 0,04{\%}. 
 
 \begin{figure}[htb]
 \centering
-{\includegraphics[width=1.0\textwidth]{img/trab3vap.pdf}} 
+{\includegraphics[width=0.8\textwidth]{img/trab3vap.pdf}} 
 \caption{Composição dos leves no produto de topo em função do percentual
 vaporizado}
 \label{fig:vap}
@@ -545,12 +546,41 @@ acontece.
 
 \begin{figure}[htb]
 \centering
-{\includegraphics[width=1.0\textwidth]{img/trab3vapall.pdf}} 
+{\includegraphics[width=0.8\textwidth]{img/trab3vapall.pdf}} 
 \caption{Composição de alguns pseudos no produto de topo em função do
 percentual vaporizado}
 \label{fig:vapall}
 \end{figure}
 
-\clearpage
-\section{Conclusões}  
+\section{Conclusão}  
+O presente trabalho visou a utilização da TBP do petróleo do poço CLOV (Angola) 
+na construção de EFVs com diferentes regras de mistura para uma mesma equação
+de estado, Peng-Robinson, e um mesmo modelo de Gibbs excesso,
+Scatchard-Hildebrand. Utilizou-se o software iiSE para criação de um novo óleo 
+a partir configuração deste petróleo buscando-se obter pseudos componentes a 
+serem avaliados. As curvas EFVs foram comparadas com a TBP, e entre si, 
+buscando-se conhecer seus comportamentos e desvios para determinadas faixas de 
+temperatura. A simulação, todavia, encontrou dificuldades na predição dos valores 
+para as faixas de porcentagem vaporizada de 90,5-100{\%}.
 
+Determinou-se, a fim de ser estudar os comportamentos das EFVs, a variação de 
+temperatura de 1$^\circ$C em uma faixa de 0$^\circ$C a 600$^\circ$C.
+Observou-se, então, as temperaturas iniciais de vaporização para cada regra de mistura e àquelas 
+onde se alcançava 90,5{\%} de vaporização (determinadas como temperaturas
+finais).
+Os comportamentos das EFVs SCMR e VDW foram semelhantes, mas a PSRK apresentou 
+considerável diferença na faixa de 0-200$^\circ$C. Essa diferença pode ser
+atribuída ao fato de que esta regra de mistura foi utilizada com uma equação de estado 
+(Peng-Robinson) a qual não é a sua padrão (SRK), e o modelo de Gibbs em excesso 
+utilizado também não foi o padronizado para esta opção (o modelo principal seria 
+a UNIFAC-PSRK).
+
+Finalmente, foram observadas as frações molares dos componentes mais leves 
+(etano, propano, \emph{iso}-butano e \emph{n}-butano) e alguns pseudos mais pesados 
+(escolhidos aleatoriamente), nas fases líquida e vapor, ou nos produtos de 
+fundo e topo, respectivamente. Observou-se que, inicialmente, o produto de 
+topo é mais rico nos componentes mais leves e quanto maior a massa molar dos 
+pseudos, maior a tendência destes aparecerem mais ao final da vaporização. 
+Quanto ao produto de fundo, a relação é inversa, ou seja, os leves logo tem 
+sua fração molar tendendo a zero, enquanto os pseudos mais pesados detém uma 
+dinâmica de aumento e posterior redução (vaporizam para o topo).
