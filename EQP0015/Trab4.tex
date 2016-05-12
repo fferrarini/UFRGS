@@ -1,12 +1,96 @@
+\section{Objetivos}
+O presente trabalho tem por objetivo construir um diagrama de equilíbrio
+líquido-vapor (ELV) para uma mistura de um polímero (poliisobutileno - PIB) com
+um solvente (benzeno). Para isso, será apresentada uma breve discussão dos
+modelos e metodologia de cálculo, assim como a teoria aplicada.
+
+\section{Introdução Teórica}
+
+
+A teoria de \citeonline{Flory1951} e \citeonline{Huggins1942} considera a
+energia livre de Gibbs da mistura do polímero puro com o solvente,
+$\Delta$g$_{mis}$, em termos de duas contribuições: entalpia de mistura
+($\Delta$h$_{mis}$) e entropia de mistura ($\Delta$s$_{mis}$), conforme é
+apresentado a seguir:
+
+\begin{equation}\label{eq:gemist}
+\Delta g_{mis} = \Delta h_{mis} - T\Delta s_{mis}
+\end{equation}
+
+A entropia de mistura é determinada pelas frações volumétricas do solvente e do
+polímero, enquanto a entalpia é determinada pelo parâmetro adimensional de interação
+$\chi$, o qual normalmente é referido como parâmetro de interação de
+Flory-Huggins, conforme é apresentado nas equações abaixo: 
+
+\begin{equation}\label{eq:entalexc}
+\Delta h_{mis} = \chi RT\left( x_1 + mx_2 \right)\phi_1\phi_2
+\end{equation}
+
+\begin{equation}\label{eq:entroexc}
+\Delta s_{mis} = -R\left( x_1\ln\phi_1 + x_2\ln\phi_2 \right)
+\end{equation}
+
+Conforme é apresentado por \citeonline{Koretsky2013}, a energia de Gibbs em
+excesso ($g^E$) é expressa através da diferença entre $\Delta g_{mis}$ e sua
+condição ideal, como mostrado abaixo:
+
+\begin{equation}\label{eq:geexc1}
+g^E = \Delta g_{mis} - \Delta g_{mis}^{ideal}
+\end{equation}
+onde:
+
 \begin{equation}
+\Delta g_{mis}^{ideal} = RT\sum_ix_i\ln x_i
+\end{equation}
+
+Substituindo na \autoref{eq:geexc1}
+
+\begin{equation}
+g^E = \Delta g_{mis} - RT\sum_ix_i\ln x_i
+\end{equation}
+
+Através da definição de $\Delta g_{mis}$ e considerando um sistema binário,
+tem-se:
+
+\begin{equation}\label{eq:geexc2}
+g^E = \Delta h^{mist} - T\Delta s^{mist} - RT\left( x_1\ln x_1 + x_2\ln x_2
+\right)
+\end{equation}
+
+Substituindo as Equações \ref{eq:entalexc} e \ref{eq:entroexc} na
+\autoref{eq:geexc2} e fazendo-se um rearranjo, obtem-se uma expressão para a
+energia de Gibbs em excesso em função das frações molares ($x$) e volumétricas ($\phi$), como é apresentado abaixo:
+
+\begin{equation}\label{eq:geRT}
 \frac{g^E}{RT} = \chi\left(x_1 + mx_2\right)\phi_1\phi_2 +
 \left[x_1\ln\frac{\phi_1}{x_1} + x_2\ln\frac{\phi_2}{x_2}\right]
 \end{equation}
+onde $x_1$ e $x_2$ são as frações molares do solvente e do polímero,
+respectivamente; $\phi_1$ e $\phi_2$ são, respectivamente, as frações
+volumétricas do solvente e polímero, as quais são obtidas através das
+seguintes equações:
 
 \begin{equation}
+\phi_1 = \frac{n_1}{n_1 + mn_2}
+\end{equation}
+
+\begin{equation}
+\phi_2 = \frac{mn_2}{n_1 + mn_2} = 1 - \phi_1
+\end{equation}
+
+Aplicando-se a definição de uma propriedade parcial molar para a
+\autoref{eq:geRT}, derivando-se com relação ao número de mols do componente 1
+(solvente), obtem-se a seguinte expressão para o coeficiente de atividade para tal
+componente:
+
+
+\begin{equation}\label{eq:gamma1}
 \ln\gamma_1 = \ln\frac{\phi_1}{x_1} + \phi_2\left( 1 - \frac{1}{m} \right) +
 \chi\phi_2^2
 \end{equation}
+
+De uma maneira análoga ao que foi feito para obter a \autoref{eq:gamma1},
+chega-se a seguinte expressão para o coeficiente de atividade do componete 2 (polímero):
 
 \begin{equation}
 \ln\gamma_2 = \ln\frac{\phi_2}{x_2} - \phi_1\left( m - 1 \right) +
@@ -14,17 +98,22 @@ m\chi\phi_1^2
 \end{equation}
 
 
-\begin{equation}
-\hat{f_1}^l = \hat{f_1}^v
-\end{equation}
 
-\begin{equation}
-\gamma_1x_1P_1^{sat} = Py_1
-\end{equation}
+Conforme é apresentado por \citeonline{Tadros2013}, o parâmetro de interação de
+Flory-Huggins ($\chi$) fornece a medida da interação das cadeias poliméricas com as moléculas de solvente e, também, as interações
+polímero-polímero. 
 
-\begin{equation}
-\gamma_1x_1P_1^{sat} = P
-\end{equation}
+Quando $\chi$ assume valor igual a 0,50, o polímero se comporta
+como uma mistura ideal com o solvente. Essa condição é denotada por Flory como ponto
+$\theta$. Quanto $\chi$ assume valores superiores desta condição, o polímero não
+sofre nenhum tipo de repulsão (ou atração). Quando $\chi$ assume valores
+inferiores a 0,50, a mistura se comporta como não ideal, apresentando desvios
+positivos (repulsão). Em contrapartida, quando $\chi$ é superior a 0,50, ocorrem
+desvios negativos (atração). Nessas condições, pode ocorrer a precipitação do
+polímero.
+
+
+\section{Metodologia}
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
@@ -49,27 +138,93 @@ PIB(2)}
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
-\caption{Dados experimentais de ELV para a mistura benzeno(1) / PIB(2) a 312,75.
-K}
-\sisetup{table-format=2.2,round-mode=places,round-precision=2}
-\footnotesize
-\center
-\begin{tabular}{cS[table-format=3.2,round-mode=places,round-precision=2]ccS[table-format=3.4,round-mode=places,round-precision=4]c}
+\centering
+\caption{Dados de ELV da mistura polímero-solvente benzeno(1) / PIB(2) a 312,75
+K.}
+\begin{tabular}{S[table-format=2.2,round-mode=places,round-precision=2]
+S[table-format=1.4,round-mode=places,round-precision=4]}
 \toprule
-\multicolumn{3}{c}{$w_1$ (\%)}	&	\multicolumn{3}{c}{P (bar)}\\
-\midrule 
-\multicolumn{3}{r}{4,37}	&	\multicolumn{3}{r}{0,0715}	\\
-\multicolumn{3}{r}{6,33}	&	\multicolumn{3}{r}{0,0971}	\\
-\multicolumn{3}{r}{9,45}	&	\multicolumn{3}{r}{0,1236}	\\
-\multicolumn{3}{r}{15,16}	&	\multicolumn{3}{r}{0,1681}	\\
-\multicolumn{3}{r}{18,42}	&	\multicolumn{3}{r}{0,1818}	\\
-\multicolumn{3}{r}{25,37}	&	\multicolumn{3}{r}{0,2095}	\\
-\multicolumn{3}{r}{29,71}	&	\multicolumn{3}{r}{0,2182}	\\
-\multicolumn{3}{r}{32,12}	&	\multicolumn{3}{r}{0,2207}	\\
-\multicolumn{3}{r}{37,3}	&	\multicolumn{3}{r}{0,2267}	\\
+{$w_1$ (\%)}	&	{P (bar)}	\\
+\midrule
 
+4,37	&	0,0715	\\
+6,33	&	0,0971	\\
+9,45	&	0,1236	\\
+15,16	&	0,1681	\\
+18,42	&	0,1818	\\
+25,37	&	0,2095	\\
+29,71	&	0,2182	\\
+32,12	&	0,2207	\\
+37,30	&	0,2267	\\
 \bottomrule
-\multicolumn{6}{c}{Obs.:Dados retirados do material fornecido em aula }
 \end{tabular}
 \label{tab:dexp2}
 \end{table}
+
+
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Valores experimentais de $\chi$ em função da temperatura e da fração
+volumétrica do polímero ($\phi_2$)}
+\begin{tabular}{lcc}
+\toprule
+{Temperatura ($^\circ$C)} & {Fração Volumétrica ($\phi_2$)} & {$\chi$}		\\
+\midrule
+{	10			}	&	{	0,4	a	0,8	}	&	{	0,670	a	0,920	}	\\
+{	25			}	&	{	0,0	a	1,0	}	&	{	0,498	a	1,060	}	\\
+{	25			}	&	{	1,0			}	&	{	0,880	a	0,610	}	\\
+{	27	a	65	}	&	{	0,6	a	1,0	}	&	{	0,730	a	1,070	}	\\
+{	30			}	&	{	0,0			}	&	{	0,495				}	\\
+{	40			}	&	{	0,6	a	0,8	}	&	{	0,700	a	0,800	}	\\
+{	50			}	&	{	0,0	a	0,2	}	&	{	0,485	a	0,583	}	\\
+{	100			}	&	{	1,0			}	&	{	0,700				}	\\
+{	37	a	200	}	&	{	1,0			}	&	{	1,180	a	0,700	}	\\
+
+\bottomrule
+\multicolumn{3}{c}{Fonte:\citeonline{Orwoll2007}}
+\end{tabular}
+\label{tab:prop1}
+\end{table}
+
+\begin{equation}
+\hat{f_1}^l = \hat{f_1}^v
+\end{equation}
+
+\begin{equation}
+\gamma_1x_1P_1^{sat} = Py_1
+\end{equation}
+
+\begin{equation}
+\gamma_1x_1P_1^{sat} = P
+\end{equation}
+
+
+
+\section{Resultados}
+
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Valores dos erros médios (absoluto e relativo) para diferentes valores
+do parâmetro de interação polímero-solvente ($\chi$)}
+\begin{tabular}{ccc}
+\toprule
+& {Erro Médio} & {Erro Médio} 	\\
+& {Absoluto} & {Relativo (\%)}	 \\
+\midrule
+{$\chi$} = 0,50 & 0,0431 & 29,06 \\
+{$\chi$} = 0,80 & 0,0179 & 13,58 \\
+{$\chi$} = 0,90 & 0,0105 & 8,61  \\
+{$\chi$} = 0,95 & 0,0089 & 7,02  \\
+{$\chi$} = 1,00 & 0,0092 & 6,38  \\
+{$\chi$} = 1,05 & 0,0110 & 6,46  \\
+{$\chi$} = 1,10 & 0,0147 & 7,81  \\
+{$\chi$} = 1,20 & 0,0244 & 12,88 \\
+{$\chi$} = 1,50 & 0,0643 & 38,34 \\
+\bottomrule
+\end{tabular}
+\label{tab:allresult}
+\end{table}
+
+\section{Conclusões}
