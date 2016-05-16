@@ -8,18 +8,19 @@ modelos e metodologia de cálculo, assim como a teoria aplicada.
 
 
 A teoria de \citeonline{Flory1951} e \citeonline{Huggins1942} considera a
-energia livre de Gibbs da mistura do polímero puro com o solvente,
-$\Delta$g$_{mis}$, em termos de duas contribuições: entalpia de mistura
-($\Delta$h$_{mis}$) e entropia de mistura ($\Delta$s$_{mis}$), conforme é
+energia livre de Gibbs da mistura do polímero puro com o solvente
+($\Delta g_{mis}$) em termos de duas contribuições: entalpia de mistura 
+($\Delta h_{mis}$) e entropia de mistura ($\Delta s_{mis}$), conforme é
 apresentado a seguir:
 
 \begin{equation}\label{eq:gemist}
 \Delta g_{mis} = \Delta h_{mis} - T\Delta s_{mis}
 \end{equation}
+onde $T$ é a temperatura absoluta.
 
-A entropia de mistura é determinada pelas frações volumétricas do solvente e do
-polímero, enquanto a entalpia é determinada pelo parâmetro adimensional de interação
-$\chi$, o qual normalmente é referido como parâmetro de interação de
+A entropia de mistura é determinada pelas frações volumétricas do solvente
+($\phi_1$) e do polímero ($\phi_2$), enquanto a entalpia é determinada pelo
+parâmetro adimensional de interação $\chi$, o qual normalmente é referido como parâmetro de interação de
 Flory-Huggins, conforme é apresentado nas equações abaixo: 
 
 \begin{equation}\label{eq:entalexc}
@@ -43,7 +44,7 @@ onde:
 \Delta g_{mis}^{ideal} = RT\sum_ix_i\ln x_i
 \end{equation}
 
-Substituindo na \autoref{eq:geexc1}
+Substituindo na \autoref{eq:geexc1}, obtem-se:
 
 \begin{equation}
 g^E = \Delta g_{mis} - RT\sum_ix_i\ln x_i
@@ -58,8 +59,9 @@ g^E = \Delta h^{mist} - T\Delta s^{mist} - RT\left( x_1\ln x_1 + x_2\ln x_2
 \end{equation}
 
 Substituindo as Equações \ref{eq:entalexc} e \ref{eq:entroexc} na
-\autoref{eq:geexc2} e fazendo-se um rearranjo, obtem-se uma expressão para a
-energia de Gibbs em excesso em função das frações molares ($x$) e volumétricas ($\phi$), como é apresentado abaixo:
+\autoref{eq:geexc2} e fazendo-se as devidas simplificações, obtem-se uma
+expressão para a energia de Gibbs em excesso em função das frações molares
+($x_i$) e volumétricas ($\phi_i$), como é apresentado abaixo:
 
 \begin{equation}\label{eq:geRT}
 \frac{g^E}{RT} = \chi\left(x_1 + mx_2\right)\phi_1\phi_2 +
@@ -70,18 +72,26 @@ respectivamente; $\phi_1$ e $\phi_2$ são, respectivamente, as frações
 volumétricas do solvente e polímero, as quais são obtidas através das
 seguintes equações:
 
-\begin{equation}
+\begin{equation}\label{eq:fracvap}
 \phi_1 = \frac{n_1}{n_1 + mn_2}
 \end{equation}
 
 \begin{equation}
 \phi_2 = \frac{mn_2}{n_1 + mn_2} = 1 - \phi_1
 \end{equation}
+onde $m$ é o número de repitições da unidade de monômero contida na cadeia
+polimérica e pode ser obtida através da razão entre massa molar do polímero
+($M_{wp}$) pela do monômero ($M_{wm}$), como é apresentado a seguir:
 
-Aplicando-se a definição de uma propriedade parcial molar para a
-\autoref{eq:geRT}, derivando-se com relação ao número de mols do componente 1
-(solvente), obtem-se a seguinte expressão para o coeficiente de atividade para tal
-componente:
+\begin{equation}
+m = \frac{M_{wp}}{M_{wm}}
+\end{equation}
+
+ Aplicando-se a definição de uma
+propriedade parcial molar para a \autoref{eq:geRT}, ou seja, realizando-se a
+diferenciação com relação ao número de mols do solvente, obtem-se
+a seguinte expressão para o coeficiente de atividade ($\gamma_1$) para tal
+componente da mistura:
 
 
 \begin{equation}\label{eq:gamma1}
@@ -89,8 +99,9 @@ componente:
 \chi\phi_2^2
 \end{equation}
 
-De uma maneira análoga ao que foi feito para obter a \autoref{eq:gamma1},
-chega-se a seguinte expressão para o coeficiente de atividade do componete 2 (polímero):
+De uma maneira análoga ao que foi feito para a obtenção da \autoref{eq:gamma1},
+chega-se na seguinte expressão do coeficiente de atividade para o polímero
+($\gamma_2$):
 
 \begin{equation}
 \ln\gamma_2 = \ln\frac{\phi_2}{x_2} - \phi_1\left( m - 1 \right) +
@@ -99,42 +110,58 @@ m\chi\phi_1^2
 
 
 
+
 Conforme é apresentado por \citeonline{Tadros2013}, o parâmetro de interação de
 Flory-Huggins ($\chi$) fornece a medida da interação das cadeias poliméricas com as moléculas de solvente e, também, as interações
 polímero-polímero. 
 
-Quando $\chi$ assume valor igual a 0,50, o polímero se comporta
-como uma mistura ideal com o solvente. Essa condição é denotada por Flory como ponto
-$\theta$. Quanto $\chi$ assume valores superiores desta condição, o polímero não
-sofre nenhum tipo de repulsão (ou atração). Quando $\chi$ assume valores
-inferiores a 0,50, a mistura se comporta como não ideal, apresentando desvios
-positivos (repulsão). Em contrapartida, quando $\chi$ é superior a 0,50, ocorrem
-desvios negativos (atração). Nessas condições, pode ocorrer a precipitação do
-polímero.
+Quando $\chi$ assume valor igual a $1/2$, o polímero se comporta
+como uma mistura ideal com o solvente e, nessa condição, é denotado por Flory
+como ponto $\theta$. Desse modo, o polímero não sofre nenhum tipo de repulsão ou
+atração. Para valore de $\chi$ inferiores a $1/2$, a mistura
+se comporta como não ideal, apresentando desvios positivos (repulsão). 
+Em contrapartida, para $\chi$ superior a $1/2$, ocorrem desvios negativos
+(atração). Nessas condições, pode haver a precipitação do polímero.
+
+Conforme é apresentado por \citeonline{Lindvig2002}, a relação entre o parâmetro
+de interação de Flory-Huggins e o parâmetro de solubilidade é apresentada
+através da seguinte expressão:
+
+\begin{equation}
+\chi = \frac{v_1}{RT}\left( \delta_1 - \delta_2 \right)^2
+\end{equation}
+
+Os parâmetros
+de solubilidade dos componentes puros ($\delta_1$ e $\delta_2$), conforme
+\citeonline{Kwak1986}, podem ser obtidos a partir da energia interna de
+vaporização de cada componente puro $i$ ($\Delta u_i^v$), como um líquido saturado na temperatura do sistema
+(\autoref{eq:deltai}):
+
+\begin{equation}\label{eq:deltai}
+\delta_i = \left ( \frac{\Delta u_i^V}{\nu_i^L} \right )^{\frac{1}{2}}
+\end{equation}
+
+O termo entre parânteses da \autoref{eq:deltai} é denominado de densidade de energia
+coesiva e o parâmetro de solubilidade para misturas multicomponentes é mostrada
+na \autoref{eq:delta}:
+
+\begin{equation}\label{eq:delta}
+\delta = \sum_i\sum_j\phi_i\phi_j\delta_{ij}^2
+\end{equation}
+
+onde
+
+\begin{equation}\label{eq:deltaij}
+\delta_{ij}^2 = \delta_i\delta_j
+\end{equation}
+
 
 
 \section{Metodologia}
 
-\begin{table}[htb]
-\renewcommand{\arraystretch}{1.3}
-\caption{Propriedades dos componentes da mistura polímero-solvente benzeno(1) /
-PIB(2)}
-\sisetup{table-format=2.2,round-mode=places,round-precision=2}
-\footnotesize
-\center
-\begin{tabular}{lr|lr}
-\toprule
-\multicolumn{2}{c}{Benzeno (1)}	&	\multicolumn{2}{c}{PIB (2)}		\\
-\midrule 
-{$M_{w1}\rm{ (g/mol)}$} 	&	{78}	&	{$M_{wp}\rm{ (g/mol)}$}	&	{40000}	\\
-{$v_1\rm{ (cm^3/mol)}$}	&	{88,26}	&	{$M_{wm} \rm{ (g/mol)}$}	&	{104}	\\
-{$P_1^{sat}\rm{ (bar)}$}	&	{0,2392}	&	{$v_m \rm{ (cm^3/mol)}$}	&	{131,9}	\\
-
-\bottomrule
-\multicolumn{4}{c}{Obs.: Dados retirados do material fornecido em aula}
-\end{tabular}
-\label{tab:dexp1}
-\end{table}
+Para a realização do estudo do equilíbrio líquido-vapor da mistura
+polímero-solvetne contendo benzeno e poliisobutileno (PIB) utilizaram-se os
+dados experimentais apresentados na \autoref{tab:dexp2}
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
@@ -161,6 +188,35 @@ S[table-format=1.4,round-mode=places,round-precision=4]}
 \label{tab:dexp2}
 \end{table}
 
+As propriedades, necessárias para os cálculos, das duas substâncias
+envolvidas no estudo estão mostradas na \autoref{tab:dexp1}.
+
+\begin{table}[htb]
+\renewcommand{\arraystretch}{1.3}
+\caption{Propriedades dos componentes da mistura polímero-solvente benzeno(1) /
+PIB(2)}
+\sisetup{table-format=2.2,round-mode=places,round-precision=2}
+\footnotesize
+\center
+\begin{tabular}{lr|lr}
+\toprule
+\multicolumn{2}{c}{Benzeno (1)}	&	\multicolumn{2}{c}{PIB (2)}		\\
+\midrule 
+{$M_{w1}\rm{ (g/mol)}$} 	&	{78}	&	{$M_{wp}\rm{ (g/mol)}$}	&	{40000}	\\
+{$v_1\rm{ (cm^3/mol)}$}	&	{88,26}	&	{$M_{wm} \rm{ (g/mol)}$}	&	{104}	\\
+{$P_1^{sat}\rm{ (bar)}$}	&	{0,2392}	&	{$v_m \rm{ (cm^3/mol)}$}	&	{131,9}	\\
+
+\bottomrule
+\multicolumn{4}{c}{Obs.: Dados retirados do material fornecido em aula}
+\end{tabular}
+\label{tab:dexp1}
+\end{table}
+
+Apenas para nível de comparação, a \autoref{tab:prop1} mostra alguns valores
+experimentais de $\chi$ para a mistura benzeno/PIB para diferentes composições e
+faixas de temperaturas.
+
+\clearpage
 
 \begin{table}[htb]
 \centering
@@ -187,6 +243,11 @@ volumétrica do polímero ($\phi_2$)}
 \label{tab:prop1}
 \end{table}
 
+Para os cálculos de equilíbrio, utilizou-se o modelo da Lei de Raoult
+Modificadas, considerando a fase vapor como sendo um gás ideal. O coeficiente de
+atividade foi calculado através do mosdelo de Flrory-Huggins, explanado na seção
+anterior.
+
 \begin{equation}
 \hat{f_1}^l = \hat{f_1}^v
 \end{equation}
@@ -195,11 +256,35 @@ volumétrica do polímero ($\phi_2$)}
 \gamma_1x_1P_1^{sat} = Py_1
 \end{equation}
 
+Como o solvente apresenta-se na forma pura na fase vapor, ou seja, sua fração
+molar ($y_1$) é igual a 1,0, tem-se:
+
 \begin{equation}
 \gamma_1x_1P_1^{sat} = P
 \end{equation}
 
+Como os dados de composição foram apresentados em base mássica, foi necessário
+convertê-los em base molar para fazer-se o uso do modelo. A seguir está mostrada
+a relação entre as frações mássicas e molares:
 
+\begin{equation}
+x_1
+=\frac{\displaystyle
+\frac{w_1}{M_{w1}}}{\displaystyle\frac{w_1}{M_{w1}}+\frac{w_2}{M_{wp}}}
+\end{equation}
+
+A partir disso, é possível reescrever a \autoref{eq:fracvap} em função das
+frações mássicas e volumes molares, como é apresentado a seguir:
+
+\begin{equation}
+\phi_1 =
+\frac{\displaystyle\frac{w_1}{M_{w1}}v_1}{\displaystyle\frac{w_1}{M_{w1}}v_1+\displaystyle\frac{w_2}{M_{wp}}mv_m}
+\end{equation}
+
+Os códigos de programação foram implementados em
+liguagem $Java$ utilizando o ambiente do Eclipse Mars 2 Release (4.5.2)
+
+\clearpage
 
 \section{Resultados}
 
