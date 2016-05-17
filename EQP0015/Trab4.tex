@@ -31,7 +31,7 @@ Flory-Huggins, conforme é apresentado nas equações abaixo:
 \Delta s_{mis} = -R\left( x_1\ln\phi_1 + x_2\ln\phi_2 \right)
 \end{equation}
 
-Conforme é apresentado por \citeonline{Koretsky2013}, a energia de Gibbs em
+De acordo com \citeonline{Koretsky2013}, a energia de Gibbs em
 excesso ($g^E$) é expressa através da diferença entre $\Delta g_{mis}$ e sua
 condição ideal, como mostrado abaixo:
 
@@ -90,8 +90,8 @@ m = \frac{M_{wp}}{M_{wm}}
  Aplicando-se a definição de uma
 propriedade parcial molar para a \autoref{eq:geRT}, ou seja, realizando-se a
 diferenciação com relação ao número de mols do solvente, obtem-se
-a seguinte expressão para o coeficiente de atividade ($\gamma_1$) para tal
-componente da mistura:
+a seguinte expressão para o coeficiente de atividade para tal
+componente da mistura ($\gamma_1$):
 
 
 \begin{equation}\label{eq:gamma1}
@@ -108,9 +108,6 @@ chega-se na seguinte expressão do coeficiente de atividade para o polímero
 m\chi\phi_1^2
 \end{equation}
 
-
-
-
 Conforme é apresentado por \citeonline{Tadros2013}, o parâmetro de interação de
 Flory-Huggins ($\chi$) fornece a medida da interação das cadeias poliméricas com as moléculas de solvente e, também, as interações
 polímero-polímero. 
@@ -118,7 +115,7 @@ polímero-polímero.
 Quando $\chi$ assume valor igual a $1/2$, o polímero se comporta
 como uma mistura ideal com o solvente e, nessa condição, é denotado por Flory
 como ponto $\theta$. Desse modo, o polímero não sofre nenhum tipo de repulsão ou
-atração. Para valore de $\chi$ inferiores a $1/2$, a mistura
+atração. Para valores de $\chi$ inferiores a $1/2$, a mistura
 se comporta como não ideal, apresentando desvios positivos (repulsão). 
 Em contrapartida, para $\chi$ superior a $1/2$, ocorrem desvios negativos
 (atração). Nessas condições, pode haver a precipitação do polímero.
@@ -148,7 +145,6 @@ na \autoref{eq:delta}:
 \begin{equation}\label{eq:delta}
 \delta = \sum_i\sum_j\phi_i\phi_j\delta_{ij}^2
 \end{equation}
-
 onde
 
 \begin{equation}\label{eq:deltaij}
@@ -160,14 +156,16 @@ onde
 \section{Metodologia}
 
 Para a realização do estudo do equilíbrio líquido-vapor da mistura
-polímero-solvetne contendo benzeno e poliisobutileno (PIB) utilizaram-se os
-dados experimentais apresentados na \autoref{tab:dexp2}
+polímero - solvente contendo benzeno e poliisobutileno (PIB) utilizaram-se 
+os dados experimentais (retirados do material fornecido em aula) apresentados na
+\autoref{tab:dexp2}. As propriedades, necessárias para os cálculos, das duas
+substâncias envolvidas no estudo estão mostradas na \autoref{tab:dexp1}.
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
 \centering
-\caption{Dados de ELV da mistura polímero-solvente benzeno(1) / PIB(2) a 312,75
-K.}
+\caption{Dados experimentais de ELV da mistura polímero-solvente benzeno(1) /
+PIB(2) a 312,75 K.}
 \begin{tabular}{S[table-format=2.2,round-mode=places,round-precision=2]
 S[table-format=1.4,round-mode=places,round-precision=4]}
 \toprule
@@ -185,11 +183,8 @@ S[table-format=1.4,round-mode=places,round-precision=4]}
 37,30	&	0,2267	\\
 \bottomrule
 \end{tabular}
-\label{tab:dexp2}
-\end{table}
-
-As propriedades, necessárias para os cálculos, das duas substâncias
-envolvidas no estudo estão mostradas na \autoref{tab:dexp1}.
+\label{tab:dexp2} 
+\end{table} 
 
 \begin{table}[htb]
 \renewcommand{\arraystretch}{1.3}
@@ -198,13 +193,13 @@ PIB(2)}
 \sisetup{table-format=2.2,round-mode=places,round-precision=2}
 \footnotesize
 \center
-\begin{tabular}{lr|lr}
+\begin{tabular}{lrlr}
 \toprule
 \multicolumn{2}{c}{Benzeno (1)}	&	\multicolumn{2}{c}{PIB (2)}		\\
-\midrule 
-{$M_{w1}\rm{ (g/mol)}$} 	&	{78}	&	{$M_{wp}\rm{ (g/mol)}$}	&	{40000}	\\
-{$v_1\rm{ (cm^3/mol)}$}	&	{88,26}	&	{$M_{wm} \rm{ (g/mol)}$}	&	{104}	\\
-{$P_1^{sat}\rm{ (bar)}$}	&	{0,2392}	&	{$v_m \rm{ (cm^3/mol)}$}	&	{131,9}	\\
+\cmidrule(lr{.5em}){1-2} \cmidrule(lr{.5em}){3-4}
+{$M_{w1}\rm{ (g/mol)}$} 	&	{$78$}	&	{$M_{wp}\rm{ (g/mol)}$}	&	{$40000$}	\\
+{$v_1\rm{ (cm^3/mol)}$}	&	{$88,26$}	&	{$M_{wm} \rm{ (g/mol)}$}	&	{$104$}	\\
+{$P_1^{sat}\rm{ (bar)}$}	&	{$0,2392$}	&	{$v_m \rm{ (cm^3/mol)}$}	&	{$131,9$}	\\
 
 \bottomrule
 \multicolumn{4}{c}{Obs.: Dados retirados do material fornecido em aula}
@@ -222,20 +217,20 @@ faixas de temperaturas.
 \centering
 \renewcommand{\arraystretch}{1.3}
 \caption{Valores experimentais de $\chi$ em função da temperatura e da fração
-volumétrica do polímero ($\phi_2$)}
+volumétrica do polímero ($\phi_2$) encontrados na literatura}
 \begin{tabular}{lcc}
 \toprule
 {Temperatura ($^\circ$C)} & {Fração Volumétrica ($\phi_2$)} & {$\chi$}		\\
 \midrule
-{	10			}	&	{	0,4	a	0,8	}	&	{	0,670	a	0,920	}	\\
-{	25			}	&	{	0,0	a	1,0	}	&	{	0,498	a	1,060	}	\\
-{	25			}	&	{	1,0			}	&	{	0,880	a	0,610	}	\\
-{	27	a	65	}	&	{	0,6	a	1,0	}	&	{	0,730	a	1,070	}	\\
-{	30			}	&	{	0,0			}	&	{	0,495				}	\\
-{	40			}	&	{	0,6	a	0,8	}	&	{	0,700	a	0,800	}	\\
-{	50			}	&	{	0,0	a	0,2	}	&	{	0,485	a	0,583	}	\\
-{	100			}	&	{	1,0			}	&	{	0,700				}	\\
-{	37	a	200	}	&	{	1,0			}	&	{	1,180	a	0,700	}	\\
+{$	10			$}	&	{$	0,4$	a	$0,8$}	&	{$	0,670$	a	$0,920$	}	\\
+{$	25			$}	&	{$	0,0$	a	$1,0$}	&	{$	0,498$	a	$1,060$	}	\\
+{$	25			$}	&	{$	1,0$	 		}	&	{$	0,880$	a	$0,610$	}	\\
+{$	27$	a	$65	$}	&	{$	0,6$	a $1,0$	}	&	{$	0,730$	a	$1,070$	}	\\
+{$	30			$}	&	{$	0,0$			}	&	{$	0,495$				}	\\
+{$	40			$}	&	{$	0,6$	a $0,8$	}	&	{$	0,700$	a	$0,800$	}	\\
+{$	50			$}	&	{$	0,0$	a $0,2$	}	&	{$	0,485$	a	$0,583$	}	\\
+{$	100			$}	&	{$	1,0$			}	&	{$	0,700$				}	\\
+{$	37$	a	$200$}	&	{$	1,0$			}	&	{$	1,180$	a	$0,700$	}	\\
 
 \bottomrule
 \multicolumn{3}{c}{Fonte:\citeonline{Orwoll2007}}
@@ -244,8 +239,8 @@ volumétrica do polímero ($\phi_2$)}
 \end{table}
 
 Para os cálculos de equilíbrio, utilizou-se o modelo da Lei de Raoult
-Modificadas, considerando a fase vapor como sendo um gás ideal. O coeficiente de
-atividade foi calculado através do mosdelo de Flrory-Huggins, explanado na seção
+Modificada, considerando a fase vapor como sendo um gás ideal. O coeficiente de
+atividade foi calculado através do modelo de Flrory-Huggins, explanado na seção
 anterior.
 
 \begin{equation}
@@ -284,32 +279,253 @@ frações mássicas e volumes molares, como é apresentado a seguir:
 Os códigos de programação foram implementados em
 liguagem $Java$ utilizando o ambiente do Eclipse Mars 2 Release (4.5.2)
 
-\clearpage
 
 \section{Resultados}
+
+\subsection{Sensibilidade do modelo aos valores de $\chi$ }
+Nessa seção buscou-se ententer o comportamento do modelo frente a diferentes
+valroes de $\chi$. A \autoref{tab:allsets} apresenta as configurações utilizadas
+para cada cálculo e utilizou-se $0,50$ como valor inicial de $\chi$ (mistura
+ideal) até o valor máximo de $1,50$, com passo de $0,10$.
 
 \begin{table}[htb]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \caption{Valores dos erros médios (absoluto e relativo) para diferentes valores
 do parâmetro de interação polímero-solvente ($\chi$)}
-\begin{tabular}{ccc}
+\begin{tabular}{S[table-format=3.0,round-mode=places,round-precision=0]
+S[table-format=2.0,round-mode=places,round-precision=0]
+S[table-format=1.2,round-mode=places,round-precision=2]
+S[table-format=1.2,round-mode=places,round-precision=2]}
+\toprule
+{Valores de}& {Quantidade de} & \multirow{2}{*}{$\chi_{min}$} &
+\multirow{2}{*}{$\chi_{max}$}\\
+{$w_1$ gerados}& {$\chi$ testados} & &\\
+\midrule
+100&11&0.5&1.5\\
+\bottomrule
+\end{tabular}
+\label{tab:allsets}
+\end{table}
+
+Foram testados, posteriormente, valores de $\chi$ inferiores a $0,50$ e
+superiores a $1,50$, porém os resultados apresentaram-se com desvios maiores
+com relação aqueles avaliados. Conforme o apresentado na
+\autoref{tab:prop1}, praticamente todos os valores de $\chi$ para a mistura em
+questão apresentam-se dentro da faixa avaliada.
+
+A \autoref{tab:allresult} apresenta os valores médios dos erros absoluto e
+relativo para todos os valores de $\chi$ avaliados. Observa-se que os menores erros
+médios ocorrem quando $\chi$ é igual a $1,00$. A \autoref{fig:trab4ki} mostra os
+comportamentos do modelo na predição do equilíbrio, frente aos diferentes
+valores de $\chi$, comparados com os dados experimentais. Os valores pontuais de
+erro absoluto e relativo encontram-se no Apêndice A.
+
+\clearpage
+
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Valores dos erros médios (absoluto e relativo) para diferentes valores
+do parâmetro de interação polímero-solvente ($\chi$)}
+\begin{tabular}{cS[table-format=1.4,round-mode=places,round-precision=4]S[table-format=2.2,round-mode=places,round-precision=2]}
 \toprule
 & {Erro Médio} & {Erro Médio} 	\\
 & {Absoluto} & {Relativo (\%)}	 \\
-\midrule
-{$\chi$} = 0,50 & 0,0431 & 29,06 \\
-{$\chi$} = 0,80 & 0,0179 & 13,58 \\
-{$\chi$} = 0,90 & 0,0105 & 8,61  \\
-{$\chi$} = 0,95 & 0,0089 & 7,02  \\
-{$\chi$} = 1,00 & 0,0092 & 6,38  \\
-{$\chi$} = 1,05 & 0,0110 & 6,46  \\
-{$\chi$} = 1,10 & 0,0147 & 7,81  \\
-{$\chi$} = 1,20 & 0,0244 & 12,88 \\
-{$\chi$} = 1,50 & 0,0643 & 38,34 \\
+\midrule 
+{$\chi = 0,50$} & 0.0431 & 29.06 \\
+{$\chi = 0,60$} & 0.0352 & 24.26 \\
+{$\chi = 0,70$} & 0.0268 & 19.11 \\
+{$\chi = 0,80$} & 0.0179 & 13.58 \\
+{$\chi = 0,90$} & 0.0105 & 8.61  \\
+{$\chi = 1,00$} & 0.0093 & 6.38  \\
+{$\chi = 1,10$} & 0.0147 & 7.81  \\
+{$\chi = 1,20$} & 0.0244 & 12.88 \\
+{$\chi = 1,30$} & 0.0368 & 20.77 \\
+{$\chi = 1,40$} & 0.0501 & 29.24 \\
+{$\chi = 1,50$} & 0.0643 & 38.34 \\
 \bottomrule
 \end{tabular}
 \label{tab:allresult}
 \end{table}
 
+\begin{figure}
+\centering
+{\includegraphics[width=0.8\textwidth]{img/Trab4Ki.pdf}} 
+\caption{Curvas $P-w_1$ para diferentes valores de $\chi$}
+\label{fig:trab4ki}
+\end{figure}
+
+\clearpage
+
+\subsection{Otimização}
+Otimização de processos pode ser matematicamente descrita como uma busca por um
+máximo ou mínimo de uma função objetivo. Assim, neste trabalho, a função objetivo escolhida 
+foi o somatório do diferencial da pressão calculada a partir dos parâmetros
+$\chi$ com a pressão experimental. Entretanto, mediante à possibilidade de
+avaliação de tais erros ser feita por mais de uma forma, escolheu-se investigar duas 
+alternativas: erro médio absoluto e erro médio relativo.
+
+A metodologia de otimização utilizada foi a \emph{simplex Nelder-Mead}, uma vez
+que esta possui uma convergência veloz para uma função objetivo simples. A inicialização 
+foi realizada, em ambos os casos, considerando a \autoref{tab:OptT1}  como
+configuração inicial.
+
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Configuração inicial das otimizações}
+\begin{tabular}{S[table-format=1.2,round-mode=places,round-precision=2]
+S[table-format=1.2,round-mode=places,round-precision=2]
+S[table-format=4.0,round-mode=places,round-precision=0]
+c}
+\toprule
+{$\chi_0$}& {$\chi_1$} & {N$^\circ$ máx. de iterações} & {Tolerância} 	\\
+\midrule
+0,50&0,60&8000&{$10^{-10}$}\\
+\bottomrule
+\end{tabular}
+\label{tab:OptT1}
+\end{table}
+
+\subsubsection{Otimização - Erro Absoluto}
+A função objetivo utilizada para o erro absoluto é mostrada na
+\autoref{eq:fobjabs}. A minimização é feita alterando o valor de $\chi$ e a
+função objetivo é um somatório, para todos os pontos avaliados (NP), da
+diferença, em módulo, da pressão experimental ($P^{exp}$) e da pressão calculada via o modelo
+($P^{calc}$).
+
+\begin{equation}\label{eq:fobjabs}
+min_\chi f_{obj} = \sum_i^{NP}\frac{1}{NP}\left| P_i^{exp} -
+P_i^{calc} \right|
+\end{equation}
+
+A \autoref{fig:trab4abs} mostra o comportamento do modelo para diferentes
+valores de $\chi$, bem como a curva otimizada para o erro absoluto. Observa-se
+que a curva otimizada passa exatamente sobre o quinto ponto experimental (ponto
+médio). Já a \autoref{tab:Opt2T1} apresenta os valores alcançados pela
+otimização e o valor de $\chi$ ótimo ($\chi_{opt}$). Os valores relativos a
+cada ponto experimental estão presente no Apêndice B.
+
+\begin{figure}[htb]
+\centering
+{\includegraphics[width=0.8\textwidth]{img/Trab4Abs.pdf}} 
+\caption{Curvas $P-w_1$ para diferentes valores de $\chi$ com valor otimizado
+(minimizando a diferença dos erros absolutos)}
+\label{fig:trab4abs}
+\end{figure}
+
+
+
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{1.1}
+\caption{Resposta da otimização com o erro médio absoluto como função
+objetivo}
+\begin{tabular}{S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=2.0,round-mode=places,round-precision=0]
+S[table-format=1.4,round-mode=places,round-precision=4]}
+\toprule
+\multirow{2}{*}{$\chi_{opt}$}& {Erro Abs.} & {Erro Rel.} & {N$^\circ$
+iterações} & {Valor da}\\
+& {Médio} & {Médio ($\%)$} & {realizadas} & {$f_{obj}$}\\
+\midrule
+0.9833&0.0089&6.4287&38&0.0089\\
+\bottomrule
+\end{tabular}
+\label{tab:Opt2T1}
+\end{table}
+
+\subsubsection{Otimização - Erro Relativo}
+A função objetivo utilizada para o erro relativo é mostrada na
+\autoref{eq:fobjrel}. A minimização é feita alterando o valor de $\chi$ e a
+função é um somatório, para todos os pontos avaliados (NP), da diferença, em módulo, da pressão 
+experimental ($P^{exp}$) e da pressão calculada via o modelo ($P^{calc}$),
+divindido tal pela pressão experimental.
+
+\begin{equation}\label{eq:fobjrel}
+min_\chi f_{obj} = \sum_i^{NP}\frac{1}{NP}\left| \frac{P_i^{exp} -
+P_i^{calc}}{P_i^{exp}} \right|
+\end{equation}
+
+
+A \autoref{fig:trab4rel} mostra o comportamento da função para diferentes
+valores de $\chi$, bem como a curva otimizada para o erro relativo. Observa-se
+que, desta vez, a curva otimizada passa exatamente sobre o quarto ponto
+experimental. Já a \autoref{tab:Opt3T1} apresenta os valores alcançados pela
+otimização e o valor de $\chi$ ótimo ($\chi_{opt}$). Os valores relativos a cada
+ponto experimental estão presente no Apêndice B.
+
+
+\begin{figure}[htb]
+\centering
+{\includegraphics[width=0.8\textwidth]{img/Trab4Rel.pdf}} 
+\caption{Curvas $P-w_1$ para diferentes valores de $\chi$ com valor otimizado
+(minimizando a diferença  dos erros relativos)}
+\label{fig:trab4rel}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\renewcommand{\arraystretch}{1.1}
+\caption{Resposta da otimização com o erro médio relativo como função
+objetivo}
+\begin{tabular}{S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=1.4,round-mode=places,round-precision=4]
+S[table-format=2.0,round-mode=places,round-precision=0]
+S[table-format=1.4,round-mode=places,round-precision=4]}
+\toprule
+\multirow{2}{*}{$\chi_{opt}$}& {Erro Abs.} & {Erro Rel.} & {N$^\circ$
+iterações} & {Valor da}\\
+& {Médio} & {Médio ($\%)$} & {realizadas} & {$f_{obj}$}\\
+\midrule
+1.0366&0.0103&6.2777&44&0.0628\\
+\bottomrule
+\end{tabular}
+\label{tab:Opt3T1}
+\end{table}
+
+A diferença entre os resultados é explicada pelo fato da função objetivo erro
+relativo possuir a divisão pela pressão experimental em cada ponto. Assim, nesta
+função objetivo, quanto mais próximo de zero é a pressão, maior será o erro gerado 
+e, consequentemente, maior o impacto do mesmo no somatório. Assim, é
+compreensível que esta otimização posicione o ótimo mais a esquerda do que a anterior de modo a “compensar” 
+essa divisão.
+
+
+
 \section{Conclusões}
+Este trabalho visou o estudo da predição e construção de um diagrama de
+equílibrio líquido-vapor para uma mistura de um solvente (benzeno) com um polímero
+(poliisobutileno - PIB). Para tal, foi utilizada a Lei de Raoult Modificada, a
+qual fez o uso da equação de Flory-Huggins como modelo para o coeficiente de
+atividade.
+
+Inicialmente, foram arbitrados valores para o coeficiente de interação de
+Flory-Huggins ($\chi$) com o intuito de avaliar a influência deste na predição
+do equilíbrio. Em seguida, esse mesmo parâmetro foi estimado através da
+minimização da função erro médio (absoluto e relativo), com o objetivo de achar
+seu valor otimizado, ou seja, aquele que melhor se ajusta aos dados
+experimentais. Nesse intuito, utilizou-se a função \emph{simplex Nelder-Mead},
+inicializada nos dois valores menores valores avaliados de $\chi$.
+
+As duas otimizações realizadas alcançaram valores ótimos distintos para o
+parâmetro $\chi$. Isso se deve ao fato de que a função objetivo erro médio
+relativo considera a pressão experimental de cada ponto. Cada ponto
+experimental apresenta valores pequenos (inferiores a $1,0$), o que leva a
+acréscimos cada vez maiores quando tais pressões tendem a zero. Já a função
+objetivo erro médio absoluto, que não apresenta a divisão pelo valor
+experimental, busca uma resposta de fato média para a resolução do problema
+(comprovado pelo fato da função cruzar a curva experimental na
+mediana).
+
+A partir dos resultados apresentados para o parâmetro de interação de
+Flory-Huggins, que assumiu valores acima de $0,50$, pode-se concluir que o
+sistema estudado apresenta desvios negativos com relação à idealidade, ou seja,
+existem forças atrativas entre as moléculas de solvente e as cadeias poliméricas.
+
+ 
+
