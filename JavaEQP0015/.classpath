@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="iise-client.jar"/>
 	<classpathentry kind="lib" path="jcommon-1.0.10.jar"/>
 	<classpathentry kind="lib" path="jfreechart-1.0.13.jar"/>
+	<classpathentry kind="lib" path="iText-5.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
