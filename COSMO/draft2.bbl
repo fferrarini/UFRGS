@@ -1,0 +1,25 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\url{#1}\endgroup}\fi
+\providecommand{\bibinfo}[2]{#2}
+
+\bibitem[{Lin and Sandler(2002)}]{Lin:2002}
+\bibinfo{author}{S.-T. Lin}, \bibinfo{author}{S.~I. Sandler},
+  \bibinfo{title}{{A Priori Phase Equilibrium Prediction from a Segment
+  Contribution Solvation Model}}, \bibinfo{journal}{Ind. \& Eng. Chem. Res.}
+  \bibinfo{volume}{41}~(\bibinfo{number}{5}) (\bibinfo{year}{2002})
+  \bibinfo{pages}{899--913}.
+
+\bibitem[{Klamt(1995)}]{Klamt:1995}
+\bibinfo{author}{A.~Klamt}, \bibinfo{title}{{Conductor-like Screening Model for
+  Real Solvents: A New Approach to the Quantitative Calculation of Solvation
+  Phenomena}}, \bibinfo{journal}{The Journal of Physical Chemistry}
+  \bibinfo{volume}{99}~(\bibinfo{number}{7}) (\bibinfo{year}{1995})
+  \bibinfo{pages}{2224--2235}.
+
+\end{thebibliography}

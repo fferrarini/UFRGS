@@ -1,0 +1,90 @@
+
+\documentclass[3p]{elsarticle}
+\journal{Fluid Phase Equilibria}
+\bibliographystyle{elsarticle-num-names}
+
+% custom packages
+\input{preamble}
+
+%\usepackage[style=authortitle-icomp,natbib=true,sortcites=true,block=space]{biblatex}
+
+% float to the end of document (draft for revision)
+%\usepackage[tablesfirst]{endfloat}
+
+\usepackage{natbib}
+\usepackage{soul}
+
+
+\begin{document}
+\begin{frontmatter}
+\title{An alternative reference fluid for the COSMO-SAC model}
+\author{Rafael de P. Soares\corref{cor1}}
+\ead{rafael.pelegrini@ufrgs.br}
+
+\address{Departamento de Engenharia Qu\'imica, Escola de
+Engenharia, Universidade Federal do Rio Grande do Sul,
+Rua Engenheiro Luis Englert, s/n, Bairro Farroupilha, CEP 90040-040, Porto
+Alegre, RS, Brazil\\July 2013}
+
+\cortext[cor1]{Corresponding author. Tel.:+55 51 33083528; fax: +55 51 33083277}
+
+\end{frontmatter}
+%\section*{Introduction}
+%\label{sec:intro}
+
+In the COSMO-SAC \citep{Lin:2002} model of \citeauthor{Lin:2002}, the \emph{activity coefficient} of a
+segment $\Gamma_m$ is obtained using a reference fluid where all segments
+have an identical chemical potential $\mu^0(0)$.
+In the present work we show a new derivation for the activity coefficient of a segment
+using the reference of an \emph{ideal} fluid with zero interaction energies but
+not identical chemical potentials.
+
+We start from the Eq.~(9) of \cite{Lin:2002}, which is also similar to the one originally derived
+by \citeauthor{Klamt:1995}\cite{Klamt:1995}:
+\begin{equation}\label{eq:mu}
+	\frac{\mu_m}{kT} =-\ln\left[\sum_n
+	\exp\left(\frac{-E_{m,n} + \mu_n}{kT}\right)\right] + \ln{p_m}
+\end{equation}
+where $\mu_m$ is the chemical potential of a segument $m$; $E_{m,n} = E_{n,m}$ is the interaction
+energy for the contact between the segments $m$ and $n$; $p_m$ is the
+probabylity of finding a segment $m$ in the mixture; and $T$ is the temperature.
+
+Now let us consider an \emph{ideal} fluid where all the interations are zero, $E_{m,n}=0$,
+resulting in:
+\begin{equation}\label{eq:mu0}
+	\frac{\mu_m^0}{kT} =-\ln\left[\sum_n
+	\exp\left(\frac{\mu_n^0}{kT}\right)\right] + \ln{p_m}
+\end{equation}
+
+One could argue that, if there is no interaction, the chemical potential
+of a segment $\mu_m^0$ should not depend on the chemical potential
+of other segments $\mu_n^0$.
+Indeed, since $\sum_n p_n = 1$, one can verify that $\mu_m^0/kT =
+\ln{p_m}$ is a solution of Eq.~(\ref{eq:mu0}).
+
+Then, if we subtract $\mu_m^0/kT = \ln{p_m}$ from Eq.~(\ref{eq:mu})
+and define the activity coefficient of a segment as
+$\ln\Gamma_m \equiv (\mu_m - \mu_m^0)/kT$, we get:
+\begin{equation}\label{eq:lnGAMMA}
+	\ln\Gamma_m =-\ln\left[\sum_n
+	\exp\left(\frac{-E_{m,n} + \mu_n}{kT}\right)\right]
+\end{equation}
+
+Finally, if we use $\mu_n/kT = \ln\Gamma_n + \mu_n^0/kT =
+\ln\Gamma_n + \ln p_n$, it is possible to show that:
+\begin{equation}\label{eq:lnGAMMA}
+	\ln\Gamma_m =-\ln\left[\sum_n p_n \Gamma_n
+	\exp\left(\frac{-E_{m,n}}{kT}\right)\right]
+\end{equation}
+which is equivalent to Eq.~(10) of \cite{Lin:2002}.
+
+With this derivation it is more clear that many contributions can be added directly
+to the interaction energy $E_{m,n}$, not only the usual electrostatic and
+hydrogen bond contributions.
+Further, that the activity coefficient of a segment $\ln\Gamma_m$ can be used
+to compute the residual Helmholtz energy, with respect to a non-interacting
+fluid.
+
+\bibliography{ppgeq}
+
+\end{document}

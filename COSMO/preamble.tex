@@ -1,0 +1,34 @@
+%%
+%%   Preambulo: pacotes, configurações e comandos específicos do usuário
+%%
+%% Rafael de Pelegrini Soares (rafael@rps.eng.br)
+%% - Fev 2006
+
+\usepackage{hyperref}
+\def\sectionautorefname{Section}
+%PDF LaTeX
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+  \pdffalse
+\else
+  \pdfoutput=1
+  \pdftrue
+\fi
+
+\ifpdf
+  %\hypersetup{colorlinks,citecolor=red,urlcolor=blue,pdfstartview=FitH}
+\fi
+
+\newcommand{\eqref}[1]{(\ref{#1})}
+
+\usepackage{color}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{pifont}
+% \usepackage{geometry}
+\usepackage{fleqn}
+\usepackage{txfonts}
+
+
+

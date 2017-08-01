@@ -1,0 +1,143 @@
+
+\documentclass[3p]{elsarticle}
+\journal{Fluid Phase Equilibria}
+\bibliographystyle{elsarticle-num-names}
+\usepackage[portuguese]{nomencl}
+% Hifenação e caracteres especiais
+% português-brasil e inglês
+% ---
+\usepackage[brazil]{babel}
+\addto\captionsbrazil{%
+%  \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{listings}	% Pacote para linguagens
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+  \begingroup%
+  \let\oldnumberline\numberline%
+  \renewcommand{\numberline}{\lstlistingname~\oldnumberline}%
+  \oldlstlistoflistings%
+  \endgroup}
+  
+\usepackage[brazil]{hyperref}
+ 
+% custom packages
+\input{preamble}
+
+%\usepackage[style=authortitle-icomp,natbib=true,sortcites=true,block=space]{biblatex}
+
+% float to the end of document (draft for revision)
+%\usepackage[tablesfirst]{endfloat}
+
+\usepackage{natbib}
+\usepackage{soul}
+
+
+\begin{document}
+\begin{frontmatter} 
+\title{An alternative reference fluid for the COSMO-SAC model}
+\author{Rafael de P. Soares\corref{cor1}}
+\ead{rafael.pelegrini@ufrgs.br}
+
+\address{Departamento de Engenharia Qu\'imica, Escola de
+Engenharia, Universidade Federal do Rio Grande do Sul,
+Rua Engenheiro Luis Englert, s/n, Bairro Farroupilha, CEP 90040-040, Porto
+Alegre, RS, Brazil\\July 2013}
+
+\cortext[cor1]{Corresponding author. Tel.:+55 51 33083528; fax: +55 51 33083277}
+
+\end{frontmatter}
+% \section*{Introduction} \label{sec:intro}
+
+A partir da equação deduzida para a energia de Helmholtz \emph{(A)},  é possível
+expressar essa grandeza em termos da função de partição canônica, \emph{Q(N)}.
+Sabe-se que essa grandeza também pode ser obtida através da soma dos potenciais
+químicos de cada elemento do sistema, conforme é apresentado a seguir:
+\begin{equation}\label{eq:hn}
+A(N) = -kT\ln Q(N) = \mu_1 + \mu_2 + \ldots+ \mu_{m-1} + \mu_m + \ldots
++ \mu_{n-1} + \mu_{n} + \ldots + \mu_N
+\end{equation}
+
+De uma maneira análoga, para um sistema contendo \emph{N-2} elementos, a energia
+de Helmholtz é calculada da seguinte maneira:
+\begin{equation}\label{eq:hn-2}
+A(N-2) = -kT\ln Q(N-2) = \mu_1 + \mu_2 + \ldots+ \mu_{m-1} + \ldots
++ \mu_{n-1} + \ldots + \mu_N
+\end{equation}
+Se for subtraída a \autoref{eq:hn-2} da \autoref{eq:hn}, obtém-se, então, uma
+expressão que relaciona a razão entre as funções de partição desses dois
+sistema com os potenciais químicos dos elementeos \emph{m} e \emph{n}, conforme
+segue:
+% \begin{equation}
+% A(N) - A(N-2) = -kT\ln Q(N) + kT\ln Q(N-2) = \mu_m + \mu_n
+% \end{equation}
+\begin{equation}
+\frac{Q(N-2)}{Q(N)} = \exp\left(\frac{\mu_m + \mu_n}{kT}\right)
+\end{equation}
+
+A probabilidade de se encontrar o par \emph{(m,n)}
+\begin{equation}
+p(m,n) = \frac{N_{mn}}{N_p} =
+\displaystyle\frac{\exp\left(-\displaystyle\frac{E_{mn}}{kT}\right)Q(N-2)}{Q(N)}
+\end{equation}
+
+\begin{equation}
+p(m,n) = \exp\left(\displaystyle\frac{-E_{mn}+\mu_m+\mu_n}{kT}\right)
+\end{equation}
+
+\begin{equation}
+p(m) = \displaystyle\sum_np(m,n) =
+\displaystyle\sum_n\exp\left(\displaystyle\frac{-E_{mn}+\mu_m+\mu_n}{kT}\right)
+\end{equation}
+
+\begin{equation}
+\frac{\mu_m}{kT} = \ln p(m) -
+\ln\displaystyle\sum_n\exp\left(\displaystyle\frac{-E_{mn}+\mu_n}{kT}\right)
+\end{equation}
+
+\begin{equation}
+\frac{\mu_m^{\circ}}{kT} = \ln p(m) -
+\ln\displaystyle\sum_n\exp\left(\displaystyle\frac{\mu_n^{\circ}}{kT}\right)
+\end{equation}
+
+\begin{equation}
+\frac{\mu_m^{\circ}}{kT} = \ln p(m)
+\end{equation}
+
+\begin{equation}
+\frac{\mu_n^{\circ}}{kT} = \ln p(n)
+\end{equation}
+
+\begin{equation}
+\displaystyle\sum_np(n)=1
+\end{equation}
+
+\begin{equation}
+\ln\Gamma_m = \frac{\mu_m - \mu_m^{\circ}}{kT}
+\end{equation}
+
+\begin{equation}
+\ln\Gamma_m = -
+\ln\displaystyle\sum_n\exp\left(\displaystyle\frac{-E_{mn}+\mu_n}{kT}\right)
+\end{equation}
+
+\begin{equation}
+\frac{\mu_n}{kT} = \ln\Gamma_n + \frac{\mu_n^{\circ}}{kT}
+\end{equation}
+
+\begin{equation}
+\ln\Gamma_m = -
+\ln\displaystyle\sum_n\exp\left(\displaystyle\frac{-E_{mn}+\mu_n^{\circ}+\ln\Gamma_n}{kT}\right)
+\end{equation}
+
+\begin{equation}
+\ln\Gamma_m = -
+\ln\displaystyle\sum_np(n)\Gamma_n\exp\left(\displaystyle\frac{-E_{mn}}{kT}\right)
+\end{equation}
+
+\bibliography{ppgeq}
+
+\end{document}
