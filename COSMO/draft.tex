@@ -39,10 +39,13 @@
 \begin{document}
 \begin{frontmatter} 
 \title{An alternative reference fluid for the COSMO-SAC model}
+\author{Fabricio Ferrarini}
 \author{Rafael de P. Soares\corref{cor1}}
 \ead{rafael.pelegrini@ufrgs.br}
 
-\address{Departamento de Engenharia Qu\'imica, Escola de
+
+
+\address{Departamento de Engenharia Qu\'imica, Escola de 
 Engenharia, Universidade Federal do Rio Grande do Sul,
 Rua Engenheiro Luis Englert, s/n, Bairro Farroupilha, CEP 90040-040, Porto
 Alegre, RS, Brazil\\July 2013}
@@ -74,16 +77,23 @@ segue:
 % \begin{equation}
 % A(N) - A(N-2) = -kT\ln Q(N) + kT\ln Q(N-2) = \mu_m + \mu_n
 % \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:razaoQ}
 \frac{Q(N-2)}{Q(N)} = \exp\left(\frac{\mu_m + \mu_n}{kT}\right)
 \end{equation}
 
-A probabilidade de se encontrar o par \emph{(m,n)}
-\begin{equation}
+A probabilidade de se encontrar o par \emph{(m,n)} é dada pela razão entre a
+quantidade de pares \emph{m,n} e o número total de pares $N_p$. Essa
+probabilidade pode ser obtida multiplicando-se o fator de Boltzmann referente à
+energia de intereção do par \emph{(m,n)} pela \autoref{eq:razaoQ}, conforme é
+mostrado abaixo:
+\begin{equation}\label{eq:prob1}
 p(m,n) = \frac{N_{mn}}{N_p} =
 \displaystyle\frac{\exp\left(-\displaystyle\frac{E_{mn}}{kT}\right)Q(N-2)}{Q(N)}
 \end{equation}
-
+Substituindo a \autoref{eq:razaoQ} na \autoref{eq:prob1},  é possível obter uma
+outra expressão para o cálculo da probabilidade $p(m,n)$, não mais em termos
+das funções de partição, mas sim com relação à energia de interação entre esse
+par e seus respectivos potenciais químicos:
 \begin{equation}
 p(m,n) = \exp\left(\displaystyle\frac{-E_{mn}+\mu_m+\mu_n}{kT}\right)
 \end{equation}
