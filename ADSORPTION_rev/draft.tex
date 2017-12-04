@@ -39,10 +39,9 @@
 \begin{document}
 \begin{frontmatter} 
 \title{Adsorption: review}
-\author{Fabricio Ferrarini\corref{cor1}}
-%\author{Rafael de P. Soares\corref{cor1}}
-\ead{fabricioferrarini@gmail.com}
-
+\author{Fabr\'icio Ferrarini\corref{cor1}}
+\ead{fabricioferrarini@gmail.com} 
+ 
 
 
 \address{Departamento de Engenharia Qu\'imica, Escola de 
@@ -50,12 +49,100 @@ Engenharia, Universidade Federal do Rio Grande do Sul,
 Rua Engenheiro Luis Englert, s/n, Bairro Farroupilha, CEP 90040-040, Porto
 Alegre, RS, Brazil\\July 2013}
 
-%\cortext[cor1]{Corresponding author. Tel.:+55 51 33083528; fax: +55 51 33083277}
+\cortext[cor1]{Corresponding author. Tel.:+55 54 999254506}
 
 \end{frontmatter}
-% \section*{Introduction} \label{sec:intro}
 
-bla bla bla
+\section{Isotermas de Adsorção}
+
+\subsection{Langmuir}
+\begin{equation}
+q_e = \frac{Q_{\circ}bC_e}{1+bC_e}
+\end{equation}
+\cite{Langmuir1916}
+
+\subsection{Freundlich}
+\begin{equation}
+q_e = k_FC_e^{\frac{1}{n}}
+\end{equation}
+\cite{Freundlich1906}
+
+\subsection{Dubinin–Radushkevich}
+\begin{equation}
+q_e = q_se^{-k_{ad}\varepsilon^2}
+\end{equation}
+\cite{Dubinin1947}
+
+\subsection{Tempkin}
+\begin{equation}
+q_e = \frac{RT}{b_T}\ln\left(A_TC_e\right)
+\end{equation}
+\cite{Tempkin1940}
+
+\subsection{Flory-Huggins}
+\begin{equation}
+\frac{\theta}{C_{\circ}} = k_{FH}\left(1 - \theta\right)^{n_{FH}}
+\end{equation}
+
+\subsection{Hill}
+\begin{equation}
+q_e = \frac{q_{sH}C_e^{n_H}}{k_D+C_e^{n_H}}
+\end{equation}
+\cite{Hill1910}
+
+\subsection{Redlich-Peterson}
+\begin{equation}
+q_e = \frac{k_RC_e}{1 + a_RC_e^g}
+\end{equation}
+\cite{Redlich1959}
+
+\subsection{Sips}
+\begin{equation}
+q_e = \frac{k_SC_e^{\beta_S}}{1 + a_SC_e^{\beta_S}}
+\end{equation}
+\cite{Sips1948}
+
+\subsection{Toth}
+\begin{equation}
+q_e = \frac{k_TC_e}{\left(a_T+C_e\right)^{1/t}}
+\end{equation}
+
+\subsection{Koble–Corrigan}
+\begin{equation}
+q_e = \frac{AC_e^n}{1+BC_e^n}
+\end{equation}
+
+\subsection{Khan}
+\begin{equation}
+q_e = \frac{q_sb_KC_e}{\left(1+b_KC_e\right)^{\alpha_K}}
+\end{equation}
+
+\subsection{Radke–Prausnitz}
+\begin{equation}
+q_e = \frac{a_{RP}r_RC_e^{\beta_R}}{a_{RP}+r_RC_e^{\beta_R-1}}
+\end{equation}
+
+\subsection{Brunauer-Emmett-Teller (BET)}
+\begin{equation}
+q_e =
+\frac{q_SC_{BET}C_e}{\left(C_s-C_e\right)\left[1+\left(C_{BET}-1\right)\left(C_e/C_s\right)\right]}
+\end{equation}
+
+\subsection{FHH}
+\begin{equation}
+\ln\left(\frac{C_e}{C_s}\right) =
+-\frac{\alpha}{RT}\left(\frac{q_s}{q_ed}\right)^r
+\end{equation}
+
+\subsection{MET}
+\begin{equation}
+q_e = q_s\left(\frac{k}{\ln\left(C_s/C_e\right)}\right)^{1/3}
+\end{equation}
+
+
+
+
+\subsubsection{bal}
 
 \bibliography{ppgeq}
 

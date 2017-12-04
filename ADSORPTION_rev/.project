@@ -14,4 +14,11 @@
 	<natures>
 		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>fleqn.clo</name>
+			<type>1</type>
+			<location>/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo</location>
+		</link>
+	</linkedResources>
 </projectDescription>
