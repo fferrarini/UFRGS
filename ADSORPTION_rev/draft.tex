@@ -1,0 +1,62 @@
+
+\documentclass[3p]{elsarticle}
+\journal{Fluid Phase Equilibria}
+\bibliographystyle{elsarticle-num-names}
+\usepackage[portuguese]{nomencl}
+% Hifenação e caracteres especiais
+% português-brasil e inglês
+% ---
+\usepackage[brazil]{babel}
+\addto\captionsbrazil{%
+%  \renewcommand{\listfigurename}{Lista de Ilustra\c{c}\~{o}es}
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{listings}	% Pacote para linguagens
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+  \begingroup%
+  \let\oldnumberline\numberline%
+  \renewcommand{\numberline}{\lstlistingname~\oldnumberline}%
+  \oldlstlistoflistings%
+  \endgroup}
+  
+\usepackage[brazil]{hyperref}
+ 
+% custom packages
+\input{preamble}
+
+%\usepackage[style=authortitle-icomp,natbib=true,sortcites=true,block=space]{biblatex}
+
+% float to the end of document (draft for revision)
+%\usepackage[tablesfirst]{endfloat}
+
+\usepackage{natbib}
+\usepackage{soul}
+
+
+\begin{document}
+\begin{frontmatter} 
+\title{Adsorption: review}
+\author{Fabricio Ferrarini\corref{cor1}}
+%\author{Rafael de P. Soares\corref{cor1}}
+\ead{fabricioferrarini@gmail.com}
+
+
+
+\address{Departamento de Engenharia Qu\'imica, Escola de 
+Engenharia, Universidade Federal do Rio Grande do Sul,
+Rua Engenheiro Luis Englert, s/n, Bairro Farroupilha, CEP 90040-040, Porto
+Alegre, RS, Brazil\\July 2013}
+
+%\cortext[cor1]{Corresponding author. Tel.:+55 51 33083528; fax: +55 51 33083277}
+
+\end{frontmatter}
+% \section*{Introduction} \label{sec:intro}
+
+bla bla bla
+
+\bibliography{ppgeq}
+
+\end{document}
