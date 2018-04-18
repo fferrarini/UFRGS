@@ -1,0 +1,153 @@
+% Arquivo de tema para apresenta��o.
+% N�o modifique este arquivo.
+
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage[]{qrcode}
+% work with pdflatex
+\tikzset{
+  every overlay node/.style={anchor=south east,},
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+   \tikz[baseline,overlay]\node[every overlay node]
+}%
+
+\newcommand{\qrcodelabel}[3]{
+   \begin{minipage}{#1in} \centering
+   \qrcode[hyperlink,height=#1in]{#2}
+   \tiny #3
+   \end{minipage}
+}
+
+\newcommand{\qrcodelink}[2]{
+   \begin{minipage}{#1in} \centering
+   \qrcode[hyperlink,height=#1in]{#2}
+   \tiny \href{http://#2}{#2}
+   \end{minipage}
+}
+
+\newcommand{\qrcodeonly}[2]{
+  \qrcode[hyperlink,height=#1in]{#2}
+}
+
+% symbols on footnotes and not numbers
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+%\usepackage[side, symbol*]{footmisc}
+
+\mode<handout>{
+\usepackage{pnup}
+\pgfpagesuselayout{3 on 1 with notes}[a4paper, border shrink=4mm]
+\usepackage{beamerthemeBoadilla}
+}
+
+\mode<beamer>{
+\usepackage{beamerthemeWarsaw}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\beamertemplatetransparentcovereddynamic
+\beamertemplateballitem
+\beamertemplatenumberedballsectiontoc
+\hypersetup{
+  %pdftitle={\title},
+  %pdfauthor={\author},
+  %pdfpagemode=FullScreen
+  }
+  %\pdfcompresslevel9
+}
+
+\usepackage{subfigure}
+
+\mode<article>{
+\usepackage{fullpage}
+\usepackage{beamerarticle}
+\usepackage{pgf}
+\textwidth 0.6\textwidth
+}
+
+\pgfdeclareimage[width=6cm]{logobig}{LogoLVPP22}
+\pgfdeclareimage[width=1cm]{logo}{LogoLVPP22}
+\logo{\pgfuseimage{logo}}
+
+\newenvironment{vrpresentation} {%start begin def
+\mode<beamer>{
+% Start page
+% \frame[plain]{ %
+% \frametitle{Instru��es para Visualizar esta Apresenta��o} %
+% \begin{itemize} %
+%   \item Esta apresenta��o � melhor visualizada no %
+%      \href{http://www.adobe.com/products/acrobat/readstep2.html} %
+%          {\beamergotobutton{Acrobat Reader\textregistered}} %
+%    \item Preferencialmente utilize o modo %
+%       \beamergotobutton{\Acrobatmenu{FullScreen}{tela cheia}} %
+%    \item Avance na apresenta��o com a tecla \beamergotobutton{Page Down}, %
+%       retorne com a tecla \beamergotobutton{Page Up} %
+%     \item Durante a apresenta��o, navegue clicando nos item da barra de navega��o %
+%       na parte superior ou inferior. %
+% \end{itemize} %
+% \vspace{1cm} %
+% \begin{center} %
+% \pgfuseimage{logobig} %
+% \end{center} %
+% }
+} % \mode<beamer>
+% P�gina de t�tulo
+\mode<presentation>{
+\frame[plain]{ %
+\label{frame:title} %
+\transdissolve %
+\titlepage} %
+% Sumario inicial
+% \frame{ %
+% \transdissolve %
+% \frametitle{Summary} %
+% \tableofcontents %
+% } %
+} %
+\mode<article>{\maketitle}
+%end begindef
+} %
+{ %begin enddef
+\mode<beamer>{
+% P�gina final.
+% \frame[plain]{ %
+% 	\frametitle{Obrigado!} %
+% 	\begin{itemize} %
+% %		\item O que voc� deseja fazer agora? %
+% %			\begin{itemize} %
+% 				\item \beamergotobutton{\href{http://www.enq.ufrgs.br/labs/lvpp}{visitar www.enq.ufrgs.br/labs/lvpp}} %
+% 				\item \beamergotobutton{\hyperlink{frame:title}{Reiniciar a apresenta��o}} %
+% 				\item \beamergotobutton{\Acrobatmenu{Quit}{Fechar esta apresenta��o}} %
+% %			\end{itemize} %
+% 	\end{itemize} %
+% } %
+%end enddef
+}
+\mode<article>{\begin{center} \pgfuseimage{logobig} \end{center} }
+}
+
+\usepackage{color}
+\usepackage{listings}
+\newcommand{\code}[1]{\texttt{#1}}
+
+% pacote padrao ABNT para bibliografia
+%\newlength{\bibindent}
+%\usepackage[alf, abnt-etal-cite=2, abnt-etal-list=0]{abntcite}
+%\bibliographystyle{abnt-alf}
+
+% URL-like things:
+\usepackage{url}
+\newcommand{\email}{\begingroup \urlstyle{rm}\Url}
+\newcommand{\rpsURL}{\url{www.rps.eng.br}}
+
+% Chemical formula
+\newfont{\elvsy}{cmsy10 scaled 1095} % 11pt
+\newcommand{\chemical}[1]{{\begin{eqnarray}\fontdimen16\elvsy=3.3pt
+\fontdimen17\elvsy=3.3pt\mathrm{#1}\end{eqnarray}}}
+\newcommand{\chemicaltab}[1]{{$\fontdimen16\elvsy=3.3pt\fontdimen17\elvsy=3.3pt\mathrm{#1}$}}
+\newcommand{\chemicaleqn}[1]{{\fontdimen16\elvsy=3.3pt\fontdimen17\elvsy=3.3pt\mathrm{#1}}}
